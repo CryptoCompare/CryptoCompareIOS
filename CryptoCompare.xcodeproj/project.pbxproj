@@ -15,7 +15,9 @@
 		0C7E08DA1F59721200A03BF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C7E08D81F59721200A03BF6 /* LaunchScreen.storyboard */; };
 		0C7E08E51F59721200A03BF6 /* CryptoCompareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7E08E41F59721200A03BF6 /* CryptoCompareTests.swift */; };
 		0C7E08F01F59721200A03BF6 /* CryptoCompareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7E08EF1F59721200A03BF6 /* CryptoCompareUITests.swift */; };
-		0C7E09001F5A901A00A03BF6 /* DashboardTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7E08FF1F5A901A00A03BF6 /* DashboardTableView.swift */; };
+		0C7E09061F5AB6D800A03BF6 /* DashboardTableViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7E09051F5AB6D800A03BF6 /* DashboardTableViewTableViewController.swift */; };
+		0C7E090E1F5B21BA00A03BF6 /* PlacesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7E090D1F5B21BA00A03BF6 /* PlacesModel.swift */; };
+		0C7E09101F5B226E00A03BF6 /* DashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7E090F1F5B226E00A03BF6 /* DashboardTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +52,9 @@
 		0C7E08EB1F59721200A03BF6 /* CryptoCompareUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoCompareUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C7E08EF1F59721200A03BF6 /* CryptoCompareUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCompareUITests.swift; sourceTree = "<group>"; };
 		0C7E08F11F59721200A03BF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0C7E08FF1F5A901A00A03BF6 /* DashboardTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DashboardTableView.swift; path = ../DashboardTableView.swift; sourceTree = "<group>"; };
+		0C7E09051F5AB6D800A03BF6 /* DashboardTableViewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DashboardTableViewTableViewController.swift; path = ../DashboardTableViewTableViewController.swift; sourceTree = "<group>"; };
+		0C7E090D1F5B21BA00A03BF6 /* PlacesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesModel.swift; sourceTree = "<group>"; };
+		0C7E090F1F5B226E00A03BF6 /* DashboardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +108,9 @@
 				0C7E08CD1F59721200A03BF6 /* AppDelegate.swift */,
 				0C7E08CF1F59721200A03BF6 /* FirstViewController.swift */,
 				0C7E08D11F59721200A03BF6 /* SecondViewController.swift */,
-				0C7E08FF1F5A901A00A03BF6 /* DashboardTableView.swift */,
+				0C7E090D1F5B21BA00A03BF6 /* PlacesModel.swift */,
+				0C7E09051F5AB6D800A03BF6 /* DashboardTableViewTableViewController.swift */,
+				0C7E090F1F5B226E00A03BF6 /* DashboardTableViewCell.swift */,
 				0C7E08D31F59721200A03BF6 /* Main.storyboard */,
 				0C7E08D61F59721200A03BF6 /* Assets.xcassets */,
 				0C7E08D81F59721200A03BF6 /* LaunchScreen.storyboard */,
@@ -265,10 +271,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C7E09101F5B226E00A03BF6 /* DashboardTableViewCell.swift in Sources */,
+				0C7E09061F5AB6D800A03BF6 /* DashboardTableViewTableViewController.swift in Sources */,
 				0C7E08D21F59721200A03BF6 /* SecondViewController.swift in Sources */,
 				0C7E08CE1F59721200A03BF6 /* AppDelegate.swift in Sources */,
-				0C7E09001F5A901A00A03BF6 /* DashboardTableView.swift in Sources */,
 				0C7E08D01F59721200A03BF6 /* FirstViewController.swift in Sources */,
+				0C7E090E1F5B21BA00A03BF6 /* PlacesModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
