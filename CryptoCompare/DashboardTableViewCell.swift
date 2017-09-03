@@ -12,6 +12,10 @@ class DashboardTableViewCell: UITableViewCell {
 
     
 
+
+
+    @IBOutlet weak var shadowLayer: UIView!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,5 +27,6 @@ class DashboardTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
 
 }

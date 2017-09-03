@@ -13,11 +13,14 @@ class DashboardTableViewTableViewController: UITableViewController {
   
     let data = PlacesModel()
     
+    @IBOutlet weak var tabelHeader: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        
+  
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -45,10 +48,13 @@ class DashboardTableViewTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! DashboardTableViewCell
+
         
-        let entry = data.places[indexPath.row]
-        
-        
+        cell.shadowLayer.layer.masksToBounds = false
+        cell.shadowLayer.layer.shadowOffset = CGSize(width: 0, height: 0)
+        cell.shadowLayer.layer.shadowColor = UIColor.black.cgColor
+        cell.shadowLayer.layer.shadowOpacity = 0.23
+        cell.shadowLayer.layer.shadowRadius = 4
         
 
 
