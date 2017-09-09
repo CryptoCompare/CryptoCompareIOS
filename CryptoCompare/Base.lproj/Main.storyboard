@@ -14,18 +14,17 @@
         <!--Notifications-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="CryptoCompare" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="SecondViewController" customModule="CryptoCompare" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Notifications" image="Notifications" badgeValue="44" selectedImage="Notifications" id="acW-dT-cKf"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
         </scene>
         <!--Chart-->
         <scene sceneID="eFc-9S-zgg">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gPS-df-zah" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="1lb-pX-rt0" sceneMemberID="viewController">
+                <viewController id="1lb-pX-rt0" customClass="LineChartViewController" customModule="CryptoCompare" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kpr-BK-5FB"/>
                         <viewControllerLayoutGuide type="bottom" id="HPT-df-OR4"/>
@@ -33,18 +32,74 @@
                     <view key="view" contentMode="scaleToFill" id="1G8-ax-xEE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x1A-6w-KKK">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crypto Compare" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xmC-n1-ouh">
+                                        <rect key="frame" x="9" y="34" width="140" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="140" id="U2K-Af-jbW"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K2E-bv-UXU">
+                                        <rect key="frame" x="341" y="38" width="20" height="18"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="Nlc-Ez-TQI"/>
+                                        </constraints>
+                                        <state key="normal" image="Settings"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3im-L4-HUw">
+                                        <rect key="frame" x="295" y="29" width="29" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="29" id="EcM-NA-clO"/>
+                                        </constraints>
+                                        <state key="normal" image="Refresh"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.042271393050000002" green="0.19551179160000001" blue="0.43967403620000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="K2E-bv-UXU" firstAttribute="top" secondItem="x1A-6w-KKK" secondAttribute="top" constant="38" id="6y8-Yu-hlD"/>
+                                    <constraint firstItem="xmC-n1-ouh" firstAttribute="leading" secondItem="x1A-6w-KKK" secondAttribute="leading" constant="9" id="Ah4-jP-FCp"/>
+                                    <constraint firstAttribute="trailing" secondItem="K2E-bv-UXU" secondAttribute="trailing" constant="14" id="a8M-fn-drx"/>
+                                    <constraint firstItem="xmC-n1-ouh" firstAttribute="centerY" secondItem="3im-L4-HUw" secondAttribute="centerY" id="lWs-Cg-fBQ"/>
+                                    <constraint firstItem="K2E-bv-UXU" firstAttribute="leading" secondItem="3im-L4-HUw" secondAttribute="trailing" constant="17" id="qqr-BB-2oc"/>
+                                    <constraint firstAttribute="bottom" secondItem="3im-L4-HUw" secondAttribute="bottom" constant="10" id="xZx-UF-IP6"/>
+                                    <constraint firstItem="3im-L4-HUw" firstAttribute="top" secondItem="x1A-6w-KKK" secondAttribute="top" constant="29" id="xlU-jl-t8T"/>
+                                    <constraint firstAttribute="bottom" secondItem="K2E-bv-UXU" secondAttribute="bottom" constant="14" id="y0f-es-35G"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o2l-T0-PGU" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="16" y="102" width="343" height="296"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="x1A-6w-KKK" firstAttribute="leading" secondItem="1G8-ax-xEE" secondAttribute="leading" id="9Ql-lr-7Q5"/>
+                            <constraint firstItem="HPT-df-OR4" firstAttribute="top" secondItem="x1A-6w-KKK" secondAttribute="bottom" constant="548" id="EsO-5M-Yri"/>
+                            <constraint firstAttribute="trailing" secondItem="x1A-6w-KKK" secondAttribute="trailing" id="OeZ-dw-Gjj"/>
+                            <constraint firstItem="x1A-6w-KKK" firstAttribute="top" secondItem="1G8-ax-xEE" secondAttribute="top" id="RQR-3s-0UB"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Chart" image="Chart" selectedImage="Chart" id="ykY-BI-2RT"/>
+                    <connections>
+                        <outlet property="chtChart" destination="o2l-T0-PGU" id="VV3-EF-DCU"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gPS-df-zah" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1" y="803"/>
+            <point key="canvasLocation" x="-2.3999999999999999" y="802.848575712144"/>
         </scene>
         <!--Dashboard-->
         <scene sceneID="mR8-X8-Wez">
             <objects>
                 <tableViewController id="Zrd-Hz-fQ4" customClass="DashboardTableViewTableViewController" customModule="CryptoCompare" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="167" sectionHeaderHeight="28" sectionFooterHeight="28" id="n5Z-tj-tHT">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="167" sectionHeaderHeight="28" sectionFooterHeight="28" id="n5Z-tj-tHT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -93,7 +148,7 @@
                                 <rect key="frame" x="0.0" y="98" width="375" height="167"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nuZ-Hp-ma4" id="Iyo-Un-MHT">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="167"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="166.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xFc-3j-9p8">
@@ -359,10 +414,10 @@
             </objects>
             <point key="canvasLocation" x="952.79999999999995" y="497.90104947526243"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar Controller View Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController id="49e-Tb-3d3" customClass="TabBarControllerViewController" customModule="CryptoCompare" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
@@ -370,6 +425,7 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
+                        <outlet property="tabB" destination="W28-zg-YXA" id="o9X-P8-6x8"/>
                         <segue destination="1lb-pX-rt0" kind="relationship" relationship="viewControllers" id="tUX-fe-7BK"/>
                         <segue destination="Zrd-Hz-fQ4" kind="relationship" relationship="viewControllers" id="pNJ-H7-bmy"/>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
