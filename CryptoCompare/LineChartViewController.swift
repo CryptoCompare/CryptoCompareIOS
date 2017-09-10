@@ -12,6 +12,12 @@ import Charts
 class LineChartViewController: UIViewController {
 
     
+    @IBAction func Settings(_ sender: UIButton) {
+        
+//        navigationController?.pushViewController(AppSettingsViewController, animated: true)
+    }
+
+    
     //Mark: Properties
     @IBOutlet weak var chtChart: LineChartView!
     

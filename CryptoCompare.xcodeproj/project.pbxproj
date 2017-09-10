@@ -10,6 +10,7 @@
 		0C3F1C591F63E98900A4FF9F /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C3F1C561F63E97300A4FF9F /* Charts.framework */; };
 		0C3F1C5A1F63E98900A4FF9F /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0C3F1C561F63E97300A4FF9F /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0C3F1C7D1F64825B00A4FF9F /* LineChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3F1C7C1F64825B00A4FF9F /* LineChartViewController.swift */; };
+		0C3F1C821F65B30E00A4FF9F /* AppSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3F1C811F65B30E00A4FF9F /* AppSettingsViewController.swift */; };
 		0C7E08CE1F59721200A03BF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7E08CD1F59721200A03BF6 /* AppDelegate.swift */; };
 		0C7E08D21F59721200A03BF6 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7E08D11F59721200A03BF6 /* SecondViewController.swift */; };
 		0C7E08D51F59721200A03BF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C7E08D31F59721200A03BF6 /* Main.storyboard */; };
@@ -96,6 +97,7 @@
 		0C3F1C471F63E96300A4FF9F /* Charts 15-42-37-552.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Charts 15-42-37-552.xcodeproj"; path = "../Charts-master/Charts 15-42-37-552.xcodeproj"; sourceTree = "<group>"; };
 		0C3F1C501F63E97200A4FF9F /* Charts 15-42-37-552.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Charts 15-42-37-552.xcodeproj"; path = "../../Charts-master/Charts 15-42-37-552.xcodeproj"; sourceTree = "<group>"; };
 		0C3F1C7C1F64825B00A4FF9F /* LineChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChartViewController.swift; sourceTree = "<group>"; };
+		0C3F1C811F65B30E00A4FF9F /* AppSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppSettingsViewController.swift; path = ../AppSettingsViewController.swift; sourceTree = "<group>"; };
 		0C7E08CA1F59721200A03BF6 /* CryptoCompare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoCompare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C7E08CD1F59721200A03BF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C7E08D11F59721200A03BF6 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				0C7E090D1F5B21BA00A03BF6 /* PlacesModel.swift */,
 				0C7E09051F5AB6D800A03BF6 /* DashboardTableViewTableViewController.swift */,
 				0C7E090F1F5B226E00A03BF6 /* DashboardTableViewCell.swift */,
+				0C3F1C811F65B30E00A4FF9F /* AppSettingsViewController.swift */,
 				0C7E09131F5DB48E00A03BF6 /* TabBarControllerViewController.swift */,
 				0C7E08D31F59721200A03BF6 /* Main.storyboard */,
 				0C3F1C7C1F64825B00A4FF9F /* LineChartViewController.swift */,
@@ -594,6 +597,7 @@
 				0C7E09101F5B226E00A03BF6 /* DashboardTableViewCell.swift in Sources */,
 				0C7E09061F5AB6D800A03BF6 /* DashboardTableViewTableViewController.swift in Sources */,
 				0C7E08D21F59721200A03BF6 /* SecondViewController.swift in Sources */,
+				0C3F1C821F65B30E00A4FF9F /* AppSettingsViewController.swift in Sources */,
 				0C7E08CE1F59721200A03BF6 /* AppDelegate.swift in Sources */,
 				0C7E09141F5DB48E00A03BF6 /* TabBarControllerViewController.swift in Sources */,
 				0C3F1C7D1F64825B00A4FF9F /* LineChartViewController.swift in Sources */,

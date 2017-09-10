@@ -1,30 +1,18 @@
 //
-//  TabBarControllerViewController.swift
+//  AppSettingsViewController.swift
 //  CryptoCompare
 //
-//  Created by YAGYANK CHADHA on 5/9/17.
+//  Created by YAGYANK CHADHA on 11/9/17.
 //  Copyright © 2017 YAGYANK CHADHA. All rights reserved.
 //
 
 import UIKit
 
-class TabBarControllerViewController: UITabBarController {
+class AppSettingsViewController: UIViewController {
 
-    
-    
-
-    @IBOutlet weak var tabB: UITabBar!
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-      
-        //        if freshLaunch == true {
-//            freshLaunch = false
-//            self.tabB.items =
-//           // self.tabB.selectedIndex = 1 // 1st tab
-//        }
+
         // Do any additional setup after loading the view.
     }
 
@@ -34,7 +22,6 @@ class TabBarControllerViewController: UITabBarController {
     }
     
 
-    
     /*
     // MARK: - Navigation
 
