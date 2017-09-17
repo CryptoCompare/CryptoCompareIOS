@@ -32,6 +32,11 @@ class LineChartViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+         self.navigationController?.isNavigationBarHidden  = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
