@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C274B291F6EFE6000451135 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C274B281F6EFE6000451135 /* NotificationsViewController.swift */; };
+		0C274B2E1F6F07FB00451135 /* BitcoinDashboardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C274B2D1F6F07FB00451135 /* BitcoinDashboardData.swift */; };
 		0C3F1C591F63E98900A4FF9F /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C3F1C561F63E97300A4FF9F /* Charts.framework */; };
 		0C3F1C5A1F63E98900A4FF9F /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0C3F1C561F63E97300A4FF9F /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0C3F1C7D1F64825B00A4FF9F /* LineChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3F1C7C1F64825B00A4FF9F /* LineChartViewController.swift */; };
@@ -19,7 +20,6 @@
 		0C7E08E51F59721200A03BF6 /* CryptoCompareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7E08E41F59721200A03BF6 /* CryptoCompareTests.swift */; };
 		0C7E08F01F59721200A03BF6 /* CryptoCompareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7E08EF1F59721200A03BF6 /* CryptoCompareUITests.swift */; };
 		0C7E09061F5AB6D800A03BF6 /* DashboardTableViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7E09051F5AB6D800A03BF6 /* DashboardTableViewTableViewController.swift */; };
-		0C7E090E1F5B21BA00A03BF6 /* PlacesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7E090D1F5B21BA00A03BF6 /* PlacesModel.swift */; };
 		0C7E09101F5B226E00A03BF6 /* DashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7E090F1F5B226E00A03BF6 /* DashboardTableViewCell.swift */; };
 		0C7E09141F5DB48E00A03BF6 /* TabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7E09131F5DB48E00A03BF6 /* TabBarControllerViewController.swift */; };
 		A55A21C0E862C43512BFE2D4 /* Pods_CryptoCompareTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7838D68EBB3B9C0A61C211F1 /* Pods_CryptoCompareTests.framework */; };
@@ -95,6 +95,7 @@
 
 /* Begin PBXFileReference section */
 		0C274B281F6EFE6000451135 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationsViewController.swift; path = ../NotificationsViewController.swift; sourceTree = "<group>"; };
+		0C274B2D1F6F07FB00451135 /* BitcoinDashboardData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BitcoinDashboardData.swift; path = ../BitcoinDashboardData.swift; sourceTree = "<group>"; };
 		0C3F1C471F63E96300A4FF9F /* Charts 15-42-37-552.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Charts 15-42-37-552.xcodeproj"; path = "../Charts-master/Charts 15-42-37-552.xcodeproj"; sourceTree = "<group>"; };
 		0C3F1C501F63E97200A4FF9F /* Charts 15-42-37-552.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Charts 15-42-37-552.xcodeproj"; path = "../../Charts-master/Charts 15-42-37-552.xcodeproj"; sourceTree = "<group>"; };
 		0C3F1C7C1F64825B00A4FF9F /* LineChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChartViewController.swift; sourceTree = "<group>"; };
@@ -112,7 +113,6 @@
 		0C7E08EF1F59721200A03BF6 /* CryptoCompareUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCompareUITests.swift; sourceTree = "<group>"; };
 		0C7E08F11F59721200A03BF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0C7E09051F5AB6D800A03BF6 /* DashboardTableViewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DashboardTableViewTableViewController.swift; path = ../DashboardTableViewTableViewController.swift; sourceTree = "<group>"; };
-		0C7E090D1F5B21BA00A03BF6 /* PlacesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesModel.swift; sourceTree = "<group>"; };
 		0C7E090F1F5B226E00A03BF6 /* DashboardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardTableViewCell.swift; sourceTree = "<group>"; };
 		0C7E09131F5DB48E00A03BF6 /* TabBarControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarControllerViewController.swift; sourceTree = "<group>"; };
 		206C3F870F85EA5BAABD0EC4 /* Pods-CryptoCompare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoCompare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CryptoCompare/Pods-CryptoCompare.debug.xcconfig"; sourceTree = "<group>"; };
@@ -155,6 +155,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C274B2F1F6F08DC00451135 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0C3F1C7C1F64825B00A4FF9F /* LineChartViewController.swift */,
+				0C7E09131F5DB48E00A03BF6 /* TabBarControllerViewController.swift */,
+				0C3F1C811F65B30E00A4FF9F /* AppSettingsViewController.swift */,
+				0C274B281F6EFE6000451135 /* NotificationsViewController.swift */,
+				0C7E09051F5AB6D800A03BF6 /* DashboardTableViewTableViewController.swift */,
+				0C7E090F1F5B226E00A03BF6 /* DashboardTableViewCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		0C274B301F6F091500451135 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0C274B2D1F6F07FB00451135 /* BitcoinDashboardData.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		0C274B311F6F092800451135 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		0C3F1C481F63E96300A4FF9F /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,15 +226,11 @@
 		0C7E08CC1F59721200A03BF6 /* CryptoCompare */ = {
 			isa = PBXGroup;
 			children = (
-				0C274B281F6EFE6000451135 /* NotificationsViewController.swift */,
 				0C7E08CD1F59721200A03BF6 /* AppDelegate.swift */,
-				0C7E090D1F5B21BA00A03BF6 /* PlacesModel.swift */,
-				0C7E09051F5AB6D800A03BF6 /* DashboardTableViewTableViewController.swift */,
-				0C7E090F1F5B226E00A03BF6 /* DashboardTableViewCell.swift */,
-				0C3F1C811F65B30E00A4FF9F /* AppSettingsViewController.swift */,
-				0C7E09131F5DB48E00A03BF6 /* TabBarControllerViewController.swift */,
+				0C274B2F1F6F08DC00451135 /* View */,
+				0C274B301F6F091500451135 /* Model */,
+				0C274B311F6F092800451135 /* Controller */,
 				0C7E08D31F59721200A03BF6 /* Main.storyboard */,
-				0C3F1C7C1F64825B00A4FF9F /* LineChartViewController.swift */,
 				0C7E08D61F59721200A03BF6 /* Assets.xcassets */,
 				0C7E08D81F59721200A03BF6 /* LaunchScreen.storyboard */,
 				0C7E08DB1F59721200A03BF6 /* Info.plist */,
@@ -600,7 +624,7 @@
 				0C7E08CE1F59721200A03BF6 /* AppDelegate.swift in Sources */,
 				0C7E09141F5DB48E00A03BF6 /* TabBarControllerViewController.swift in Sources */,
 				0C3F1C7D1F64825B00A4FF9F /* LineChartViewController.swift in Sources */,
-				0C7E090E1F5B21BA00A03BF6 /* PlacesModel.swift in Sources */,
+				0C274B2E1F6F07FB00451135 /* BitcoinDashboardData.swift in Sources */,
 				0C274B291F6EFE6000451135 /* NotificationsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

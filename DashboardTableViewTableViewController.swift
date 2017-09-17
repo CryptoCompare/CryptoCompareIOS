@@ -11,9 +11,9 @@ import UIKit
 class DashboardTableViewTableViewController: UITableViewController {
 
   
-    let data = PlacesModel()
+
     
-    @IBOutlet weak var tabelHeader: UIView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +49,7 @@ class DashboardTableViewTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return data.places.count
+        return 5//data.places.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
