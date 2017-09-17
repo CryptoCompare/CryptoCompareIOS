@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="HzG-9q-A7E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3Qo-Fq-O2Q">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -19,7 +19,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
+            <point key="canvasLocation" x="1688.8" y="-320.68965517241384"/>
         </scene>
         <!--Tab Bar Controller View Controller-->
         <scene sceneID="blm-uK-7L1">
@@ -38,12 +38,12 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PIp-zG-Qwm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-89" y="-91"/>
+            <point key="canvasLocation" x="848.79999999999995" y="-91.304347826086968"/>
         </scene>
-        <!--View Controller-->
+        <!--App Settings View Controller-->
         <scene sceneID="orV-zv-bbF">
             <objects>
-                <viewController id="SO2-bQ-t9Z" sceneMemberID="viewController">
+                <viewController id="SO2-bQ-t9Z" customClass="AppSettingsViewController" customModule="CryptoCompare" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jx7-cB-wWl"/>
                         <viewControllerLayoutGuide type="bottom" id="71T-C7-qca"/>
@@ -51,13 +51,6 @@
                     <view key="view" contentMode="scaleToFill" id="3D9-fa-GHe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0sz-fb-tjK">
-                                <rect key="frame" x="179" y="160" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
@@ -387,7 +380,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NEz-La-KjA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="952.79999999999995" y="497.90104947526243"/>
+            <point key="canvasLocation" x="1892" y="497.90104947526243"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="G0g-G7-YXU">
@@ -411,7 +404,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qTf-cE-hIB">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="62"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crypto Compare" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hjg-ms-iI4">
                                                 <rect key="frame" x="9" y="34" width="140" height="21"/>
@@ -423,7 +416,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b7X-UW-i7r">
-                                                <rect key="frame" x="329" y="28" width="45" height="39"/>
+                                                <rect key="frame" x="329" y="18" width="45" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="45" id="yWE-vv-hc9"/>
                                                 </constraints>
@@ -434,23 +427,23 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VTl-Ec-Yfh">
-                                                <rect key="frame" x="294" y="36" width="22" height="22"/>
+                                                <rect key="frame" x="294" y="29" width="22" height="23"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="22" id="kUI-nQ-aja"/>
                                                 </constraints>
                                                 <state key="normal" image="Refresh"/>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.042271393050000002" green="0.19551179160000001" blue="0.43967403620000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.043137254901960784" green="0.19607843137254902" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="b7X-UW-i7r" firstAttribute="top" secondItem="qTf-cE-hIB" secondAttribute="top" constant="28" id="3Rq-oh-yrL"/>
+                                            <constraint firstItem="b7X-UW-i7r" firstAttribute="top" secondItem="qTf-cE-hIB" secondAttribute="top" constant="18" id="3Rq-oh-yrL"/>
                                             <constraint firstAttribute="trailing" secondItem="b7X-UW-i7r" secondAttribute="trailing" constant="1" id="Ejr-lE-8Av"/>
                                             <constraint firstItem="b7X-UW-i7r" firstAttribute="leading" secondItem="VTl-Ec-Yfh" secondAttribute="trailing" constant="13" id="LlN-Gj-yfk"/>
                                             <constraint firstItem="hjg-ms-iI4" firstAttribute="top" secondItem="qTf-cE-hIB" secondAttribute="top" constant="34" id="cIe-Xc-snM"/>
                                             <constraint firstItem="hjg-ms-iI4" firstAttribute="leading" secondItem="qTf-cE-hIB" secondAttribute="leading" constant="9" id="dWJ-Z2-JRx"/>
                                             <constraint firstItem="VTl-Ec-Yfh" firstAttribute="centerY" secondItem="b7X-UW-i7r" secondAttribute="centerY" id="nEj-Xw-tao"/>
-                                            <constraint firstItem="VTl-Ec-Yfh" firstAttribute="top" secondItem="qTf-cE-hIB" secondAttribute="top" constant="36" id="xgN-hP-Egn"/>
-                                            <constraint firstAttribute="bottom" secondItem="b7X-UW-i7r" secondAttribute="bottom" constant="3" id="yjk-xV-TAT"/>
+                                            <constraint firstItem="VTl-Ec-Yfh" firstAttribute="top" secondItem="qTf-cE-hIB" secondAttribute="top" constant="29" id="xgN-hP-Egn"/>
+                                            <constraint firstAttribute="bottom" secondItem="b7X-UW-i7r" secondAttribute="bottom" id="yjk-xV-TAT"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -459,7 +452,7 @@
                                     <constraint firstItem="qTf-cE-hIB" firstAttribute="top" secondItem="fGA-1i-UpU" secondAttribute="top" id="SyW-AN-mvh"/>
                                     <constraint firstAttribute="trailing" secondItem="qTf-cE-hIB" secondAttribute="trailing" id="h1c-Ja-aki"/>
                                     <constraint firstItem="qTf-cE-hIB" firstAttribute="leading" secondItem="fGA-1i-UpU" secondAttribute="leading" id="xE4-6U-nph"/>
-                                    <constraint firstAttribute="bottom" secondItem="qTf-cE-hIB" secondAttribute="bottom" id="zcZ-qd-hcS"/>
+                                    <constraint firstAttribute="bottom" secondItem="qTf-cE-hIB" secondAttribute="bottom" constant="8" id="zcZ-qd-hcS"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -475,8 +468,31 @@
                             <constraint firstItem="GZZ-Oz-rpu" firstAttribute="top" secondItem="mCy-BC-L50" secondAttribute="bottom" constant="48" id="yq4-Vd-uia"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="l7b-v4-H96"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qSz-n8-Pcc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-180" y="-91.304347826086968"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="e30-3E-OKF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="3Qo-Fq-O2Q" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Yt0-RO-9Fz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="gip-V2-xhS">
+                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="HzG-9q-A7E" kind="relationship" relationship="rootViewController" id="3dU-FM-YFt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xad-I6-HPD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1119.2" y="-91.304347826086968"/>
         </scene>
