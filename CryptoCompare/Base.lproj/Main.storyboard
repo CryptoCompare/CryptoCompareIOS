@@ -40,6 +40,31 @@
             </objects>
             <point key="canvasLocation" x="-89" y="-91"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="orV-zv-bbF">
+            <objects>
+                <viewController id="SO2-bQ-t9Z" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jx7-cB-wWl"/>
+                        <viewControllerLayoutGuide type="bottom" id="71T-C7-qca"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3D9-fa-GHe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0sz-fb-tjK">
+                                <rect key="frame" x="179" y="160" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CTE-h3-zWt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1109" y="614"/>
+        </scene>
         <!--Chart-->
         <scene sceneID="eFc-9S-zgg">
             <objects>
@@ -405,6 +430,7 @@
                                                 <state key="normal" image="Settings"/>
                                                 <connections>
                                                     <action selector="Settings:" destination="1lb-pX-rt0" eventType="touchUpInside" id="42J-aF-NWt"/>
+                                                    <segue destination="SO2-bQ-t9Z" kind="show" id="WYn-lZ-47e"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VTl-Ec-Yfh">
