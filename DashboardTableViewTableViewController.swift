@@ -31,6 +31,7 @@ class DashboardTableViewTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
+        getCurrentData()
         self.navigationController?.isNavigationBarHidden  = true
 
     }
@@ -68,6 +69,40 @@ class DashboardTableViewTableViewController: UITableViewController {
         // Configure the cell...
         
         return cell
+    }
+    
+    func getCurrentData() {
+        
+        let json: [String: Any] = [
+            "Bitcoin":[
+                "SGD":[  1 ]
+            ]
+        ]
+        
+        let jsonData = try? JSONSerialization.data(withJSONObject: json)
+        
+        var request = URLRequest(url: URL(string: "http://13.59.41.217:8000/api/v1/liveData/")!)
+        request.httpMethod = "POST"
+        request.httpBody = jsonData
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                print(error?.localizedDescription ?? "No data")
+                return
+            }
+            let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
+            if let responseJSON = responseJSON as? [String: Any] {
+                for (key, sub) in responseJSON as! [JSONSerialization: Any]{
+                    for (key2,sub2) in sub  {
+                        print(key2)
+                    }
+                }
+             //   print(responseJSON)
+            }
+        }
+        
+        task.resume()
+        
     }
     
     

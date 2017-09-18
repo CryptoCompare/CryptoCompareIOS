@@ -17,6 +17,27 @@ class DashboardTableViewCell: UITableViewCell {
     @IBOutlet weak var shadowLayer: UIView!
     
     
+    //Mark Properties
+    
+    @IBOutlet weak var curency: UILabel!
+    
+    @IBOutlet weak var twentyFourHourVolume: UILabel!
+    
+    @IBOutlet weak var siteName: UILabel!
+    
+    @IBOutlet weak var currentBuyPrice: UILabel!
+    
+    @IBOutlet weak var currentSellPrice: UILabel!
+    
+    @IBOutlet weak var buyLow: UILabel!
+    
+    @IBOutlet weak var buyHigh: UILabel!
+    
+    @IBOutlet weak var sellLow: UILabel!
+    
+    @IBOutlet weak var sellHigh: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

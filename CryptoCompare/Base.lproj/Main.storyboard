@@ -366,7 +366,16 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="buyHigh" destination="kRz-ZH-n0u" id="qrM-Kz-z58"/>
+                                    <outlet property="buyLow" destination="vi2-DK-ePm" id="kzU-nQ-jb9"/>
+                                    <outlet property="curency" destination="DCz-Fx-SGu" id="1HC-S4-psO"/>
+                                    <outlet property="currentBuyPrice" destination="Xgp-Nq-6P5" id="29l-9v-l78"/>
+                                    <outlet property="currentSellPrice" destination="KD4-3t-3ak" id="1gA-sf-kJ6"/>
+                                    <outlet property="sellHigh" destination="cL0-YA-5pz" id="BNd-y7-RlQ"/>
+                                    <outlet property="sellLow" destination="cDj-gu-iut" id="jwI-z1-N5t"/>
                                     <outlet property="shadowLayer" destination="xFc-3j-9p8" id="jPq-UM-Q1V"/>
+                                    <outlet property="siteName" destination="qBg-zo-fVl" id="UMd-JF-jVO"/>
+                                    <outlet property="twentyFourHourVolume" destination="E6u-tY-m5P" id="6ZW-iJ-2Uy"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
