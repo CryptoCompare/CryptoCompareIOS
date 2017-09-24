@@ -19,7 +19,7 @@ class DashboardTableViewCell: UITableViewCell {
     
     //Mark Properties
     
-    @IBOutlet weak var curency: UILabel!
+    @IBOutlet weak var currency: UILabel!
     
     @IBOutlet weak var twentyFourHourVolume: UILabel!
     

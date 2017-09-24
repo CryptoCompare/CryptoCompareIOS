@@ -14,7 +14,7 @@ class DashboardTableCell {
     let currency : String
     let twentyFourHourHVolume : String
     let siteName : String
-    let siteId : integer_t
+    let siteId : integer_t = 0
     let currentBuy : String
     let currentSell : String
     let buyLow : String
@@ -22,12 +22,11 @@ class DashboardTableCell {
     let sellLow : String
     let sellHigh :  String
     
-    init(currency : String, twentyFourHourHVolume : String, siteName : String, siteId : integer_t, currentBuy : String, currentSell : String,   buyLow : String, buyHigh : String, sellLow : String, sellHigh :  String) {
+    init(currency : String, twentyFourHourHVolume : String, siteName : String, currentBuy : String, currentSell : String,   buyLow : String, buyHigh : String, sellLow : String, sellHigh :  String) {
         
         self.currency = currency
         self.twentyFourHourHVolume = twentyFourHourHVolume
         self.siteName = siteName
-        self.siteId = siteId
         self.currentBuy = currentBuy
         self.currentSell = currentSell
         self.buyLow = buyLow
