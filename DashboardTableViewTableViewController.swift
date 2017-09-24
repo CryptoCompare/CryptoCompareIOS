@@ -83,7 +83,7 @@ class DashboardTableViewTableViewController: UITableViewController {
         
         let json: [String: Any] = [
             "Bitcoin":[
-                "SGD":[ 1 ,2]
+                "SGD":[ 1 ,2 ,3 ,4]
             ]
         ]
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
