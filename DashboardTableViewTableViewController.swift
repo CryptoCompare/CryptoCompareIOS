@@ -29,7 +29,7 @@ class DashboardTableViewTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        
+         self.getCurrentData()
         self.navigationController?.isNavigationBarHidden  = true
 
     }
@@ -81,6 +81,27 @@ class DashboardTableViewTableViewController: UITableViewController {
     
     func getCurrentData() {
         
+//        let newExchanges = ExchangesSettingTab(name: "FYBSG", age: 10)
+//        var people = [Person]()
+//        people.append(newPerson)
+//        let encodedData = NSKeyedArchiver.archivedData(withRootObject: people)
+//        UserDefaults.standard.set(encodedData, forKey: "people")
+        
+        // retrieving a value for a key
+        var exchangeId = [Int]()
+        if let data = UserDefaults.standard.data(forKey: "allowedExchanges"),
+            let myExchangesList = NSKeyedUnarchiver.unarchiveObject(with: data) as? [ExchangesSettingTab] {
+            
+            myExchangesList.forEach({
+                if $0.allowExchange == true {
+                    exchangeId.append($0.id)
+                }
+            })
+            //myPeopleList.forEach({print( $0.name, $0.id, $0.allowExchange)})
+        } else {
+            self.tabBarController?.selectedIndex = 2
+        }
+        
         let json: [String: Any] = [
             "Bitcoin":[
                 "SGD":[ 1 ,2 ,3 ,4]
@@ -102,7 +123,7 @@ class DashboardTableViewTableViewController: UITableViewController {
                 for key in (array1?.keys)! {
                     let val = array1?[key] as? [Any]
                     for value  in (val! as? [AnyObject])! {
-                        print(value)
+                        //print(value)
                         let buy = self.reduceDecimal(value : (value["buy"] as? String)!)
                         let lastDayMaxBuy = self.reduceDecimal(value : (value["lastDayMaxBuy"] as? String)!)
                         let lastDayMaxSell = self.reduceDecimal(value : (value["lastDayMaxSell"] as? String)!)
