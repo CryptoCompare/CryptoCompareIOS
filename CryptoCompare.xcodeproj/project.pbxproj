@@ -14,6 +14,7 @@
 		0C3F1C7D1F64825B00A4FF9F /* LineChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3F1C7C1F64825B00A4FF9F /* LineChartViewController.swift */; };
 		0C3F1C821F65B30E00A4FF9F /* AppSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3F1C811F65B30E00A4FF9F /* AppSettingsViewController.swift */; };
 		0C4BA8091F7AC26900ABD209 /* Exchanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BA8081F7AC26900ABD209 /* Exchanges.swift */; };
+		0C4BA80B1F7AE04E00ABD209 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BA80A1F7AE04E00ABD209 /* SettingTableViewCell.swift */; };
 		0C7E08CE1F59721200A03BF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7E08CD1F59721200A03BF6 /* AppDelegate.swift */; };
 		0C7E08D51F59721200A03BF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C7E08D31F59721200A03BF6 /* Main.storyboard */; };
 		0C7E08D71F59721200A03BF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C7E08D61F59721200A03BF6 /* Assets.xcassets */; };
@@ -102,6 +103,7 @@
 		0C3F1C7C1F64825B00A4FF9F /* LineChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChartViewController.swift; sourceTree = "<group>"; };
 		0C3F1C811F65B30E00A4FF9F /* AppSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppSettingsViewController.swift; path = ../AppSettingsViewController.swift; sourceTree = "<group>"; };
 		0C4BA8081F7AC26900ABD209 /* Exchanges.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exchanges.swift; sourceTree = "<group>"; };
+		0C4BA80A1F7AE04E00ABD209 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		0C7E08CA1F59721200A03BF6 /* CryptoCompare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoCompare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C7E08CD1F59721200A03BF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C7E08D41F59721200A03BF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -160,12 +162,8 @@
 		0C274B2F1F6F08DC00451135 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0C3F1C7C1F64825B00A4FF9F /* LineChartViewController.swift */,
-				0C7E09131F5DB48E00A03BF6 /* TabBarControllerViewController.swift */,
-				0C3F1C811F65B30E00A4FF9F /* AppSettingsViewController.swift */,
-				0C274B281F6EFE6000451135 /* NotificationsViewController.swift */,
-				0C7E09051F5AB6D800A03BF6 /* DashboardTableViewTableViewController.swift */,
 				0C7E090F1F5B226E00A03BF6 /* DashboardTableViewCell.swift */,
+				0C4BA80A1F7AE04E00ABD209 /* SettingTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -182,6 +180,11 @@
 		0C274B311F6F092800451135 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				0C7E09051F5AB6D800A03BF6 /* DashboardTableViewTableViewController.swift */,
+				0C3F1C811F65B30E00A4FF9F /* AppSettingsViewController.swift */,
+				0C274B281F6EFE6000451135 /* NotificationsViewController.swift */,
+				0C7E09131F5DB48E00A03BF6 /* TabBarControllerViewController.swift */,
+				0C3F1C7C1F64825B00A4FF9F /* LineChartViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -627,6 +630,7 @@
 				0C3F1C821F65B30E00A4FF9F /* AppSettingsViewController.swift in Sources */,
 				0C7E08CE1F59721200A03BF6 /* AppDelegate.swift in Sources */,
 				0C7E09141F5DB48E00A03BF6 /* TabBarControllerViewController.swift in Sources */,
+				0C4BA80B1F7AE04E00ABD209 /* SettingTableViewCell.swift in Sources */,
 				0C3F1C7D1F64825B00A4FF9F /* LineChartViewController.swift in Sources */,
 				0C274B2E1F6F07FB00451135 /* BitcoinDashboardData.swift in Sources */,
 				0C274B291F6EFE6000451135 /* NotificationsViewController.swift in Sources */,

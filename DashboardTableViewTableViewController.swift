@@ -17,7 +17,7 @@ class DashboardTableViewTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         
-        self.getCurrentData()
+       // self.getCurrentData()
         super.viewDidLoad()
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         // Uncomment the following line to preserve selection between presentations
@@ -89,6 +89,9 @@ class DashboardTableViewTableViewController: UITableViewController {
         
         // retrieving a value for a key
         var exchangeId = [Int]()
+        exchangeId.append(1)
+        exchangeId.append(2)
+//        exchangeId.append(3)
         if let data = UserDefaults.standard.data(forKey: "allowedExchanges"),
             let myExchangesList = NSKeyedUnarchiver.unarchiveObject(with: data) as? [ExchangesSettingTab] {
             
@@ -99,19 +102,25 @@ class DashboardTableViewTableViewController: UITableViewController {
             })
             //myPeopleList.forEach({print( $0.name, $0.id, $0.allowExchange)})
         } else {
-            self.tabBarController?.selectedIndex = 2
+            //self.tabBarController?.selectedIndex = 2
         }
         
-        let json: [String: Any] = [
+//        let json: [String: Any] = [
+//            "Bitcoin":[
+//                "SGD":[ 1 ,2 ,3 ,4]
+//            ]
+//        ]
+        let jsonData = [
             "Bitcoin":[
-                "SGD":[ 1 ,2 ,3 ,4]
+                "SGD":exchangeId
             ]
         ]
-        let jsonData = try? JSONSerialization.data(withJSONObject: json)
+        let exchanges = try? JSONSerialization.data(withJSONObject: jsonData)
+        print(exchanges!)
         
         var request = URLRequest(url: URL(string: "http://13.59.41.217:8000/api/v1/liveData/")!)
         request.httpMethod = "POST"
-        request.httpBody = jsonData
+        request.httpBody = exchanges
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {

@@ -8,12 +8,13 @@
 
 import UIKit
 
-class AppSettingsViewController: UIViewController {
-
+class AppSettingsViewController: UITableViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        //Set table footer to avoid extra rows
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
     
 
         // Do any additional setup after loading the view.
@@ -37,6 +38,19 @@ class AppSettingsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5;
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "settingCell")
+        
+        return cell!
+    }
 
     /*
     // MARK: - Navigation
