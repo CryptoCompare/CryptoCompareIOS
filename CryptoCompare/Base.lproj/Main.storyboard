@@ -91,6 +91,9 @@
                             <outlet property="delegate" destination="f7y-Bt-Ubm" id="XvH-Wu-Lhd"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="vsl-SM-CMI" kind="show" identifier="BitcoinExchanges" id="RwG-AM-7ty"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NI8-lD-cPE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

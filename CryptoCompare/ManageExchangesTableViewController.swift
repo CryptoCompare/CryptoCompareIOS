@@ -16,8 +16,6 @@ class ManageExchangesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -28,19 +26,11 @@ class ManageExchangesTableViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
+    }c
 
     override func viewWillAppear(_ animated: Bool) {
         
-        self.navigationItem.title = "Settings"
-        self.navigationController?.navigationBar.barTintColor = UIColor.init(colorLiteralRed: 11/255, green: 50/255, blue: 112/255, alpha: 1.0)
-        self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationController?.navigationBar.isTranslucent = false
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
-        let height: CGFloat = 500 //whatever height you want
-        let bounds = self.navigationController!.navigationBar.bounds
-        self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height + height)
-        self.navigationController?.isNavigationBarHidden  = false
+
         
     }
     // MARK: - Table view data source
