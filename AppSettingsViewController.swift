@@ -10,6 +10,13 @@ import UIKit
 
 class AppSettingsViewController: UITableViewController {
     
+    //Mark: Table cell Details
+    
+    let sections = ["Manage Exchanges", "General Settings", "Learn More"]
+    let manageExchanges = ["BitCoin"]
+    let generalSettings = ["Graph Type", "Notification", "Alarm"]
+    let learnMore = ["Report Bug or Request Feature", ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,17 +46,38 @@ class AppSettingsViewController: UITableViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return self.sections.count
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view:UIView, forSection: Int) {
+        if let headerTitle = view as? UITableViewHeaderFooterView {
+            headerTitle.textLabel?.textColor = UIColor(colorLiteralRed: 0, green: 255, blue: 0, alpha: 0.9)
+        }
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.sections[section]
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5;
+        
+        switch section {
+        case 0:
+            return manageExchanges.count
+        case 1:
+            return generalSettings.count
+        default:
+            return learnMore.count
+        }
+        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "settingCell")
         
+        let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell")
         return cell!
+
     }
 
     /*

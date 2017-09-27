@@ -13,15 +13,6 @@ class SettingTableViewCell: UITableViewCell {
     
     //Mark: Properties
     
-    @IBOutlet weak var exchangeName: UILabel!
-    
-    
-    @IBAction func exchangeDisplayVal(_ sender: Any) {
-        
-        
-    }
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -32,5 +23,7 @@ class SettingTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    
 
 }

@@ -34,6 +34,11 @@ class DashboardTableViewTableViewController: UITableViewController {
 
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+
+        curData.removeAll()
+        self.tableView.reloadData()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -54,6 +59,8 @@ class DashboardTableViewTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! DashboardTableViewCell
+        
+
 
         
         cell.shadowLayer.layer.masksToBounds = false
@@ -79,7 +86,11 @@ class DashboardTableViewTableViewController: UITableViewController {
     }
     
     
+    
+    
     func getCurrentData() {
+        
+        
         
 //        let newExchanges = ExchangesSettingTab(name: "FYBSG", age: 10)
 //        var people = [Person]()
@@ -116,8 +127,6 @@ class DashboardTableViewTableViewController: UITableViewController {
             ]
         ]
         let exchanges = try? JSONSerialization.data(withJSONObject: jsonData)
-        print(exchanges!)
-        
         var request = URLRequest(url: URL(string: "http://13.59.41.217:8000/api/v1/liveData/")!)
         request.httpMethod = "POST"
         request.httpBody = exchanges

@@ -40,6 +40,34 @@
             </objects>
             <point key="canvasLocation" x="848.79999999999995" y="-91.304347826086968"/>
         </scene>
+        <!--Manage Exchanges Table View Controller-->
+        <scene sceneID="9YG-gW-5BY">
+            <objects>
+                <tableViewController id="vsl-SM-CMI" customClass="ManageExchangesTableViewController" customModule="CryptoCompare" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="jIL-uO-zVm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="manageExchangesCell" id="DeE-85-NEk">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DeE-85-NEk" id="Vmw-Hv-yUi">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="vsl-SM-CMI" id="N17-XV-JPX"/>
+                            <outlet property="delegate" destination="vsl-SM-CMI" id="ez2-FF-kD7"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kKn-Ni-I8J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1990" y="649"/>
+        </scene>
         <!--App Settings View Controller-->
         <scene sceneID="w8u-lq-3LZ">
             <objects>
@@ -49,37 +77,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingCell" id="Abc-Jm-H5G" customClass="SettingTableViewCell" customModule="CryptoCompare" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingsCell" id="5AN-5K-ImP">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Abc-Jm-H5G" id="9ze-ac-fnH">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5AN-5K-ImP" id="IGW-LN-UuK">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="H" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EUz-kw-H8o">
-                                            <rect key="frame" x="21" y="11" width="13" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pCx-ja-eQM">
-                                            <rect key="frame" x="306" y="6" width="46" height="30"/>
-                                            <state key="normal" title="Button"/>
-                                            <connections>
-                                                <action selector="exchangeDisplayVal:" destination="Abc-Jm-H5G" eventType="touchUpInside" id="C2M-bp-X1Y"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="pCx-ja-eQM" secondAttribute="trailing" constant="15" id="2LO-aA-NGH"/>
-                                        <constraint firstItem="pCx-ja-eQM" firstAttribute="centerY" secondItem="9ze-ac-fnH" secondAttribute="centerY" id="QH9-0r-bAU"/>
-                                        <constraint firstItem="EUz-kw-H8o" firstAttribute="leading" secondItem="9ze-ac-fnH" secondAttribute="leadingMargin" constant="13" id="j3f-lc-aio"/>
-                                        <constraint firstItem="EUz-kw-H8o" firstAttribute="centerY" secondItem="pCx-ja-eQM" secondAttribute="centerY" id="rl2-xa-Ypt"/>
-                                    </constraints>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="exchangeName" destination="EUz-kw-H8o" id="W7B-Ig-54O"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
