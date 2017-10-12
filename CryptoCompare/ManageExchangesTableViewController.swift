@@ -18,7 +18,33 @@ class ManageExchangesTableViewController: UITableViewController {
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        //Set table footer to avoid extra rows
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
+        var request = URLRequest(url: URL(string: "https://raw.githubusercontent.com/CryptoCompare/API/master/included_sites.json")!)
+        request.httpMethod = "GET"
+//        request.httpBody = exchanges
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                print(error?.localizedDescription ?? "No data")
+                return
+            }
+            let responseJSON = try? JSONSerialization.jsonObject(with: data, options: []) //as! [String:AnyObject]
+            let exchanges = responseJSON as? [String:Any]
+            for key in (exchanges?.keys)! {
+                let val = exchanges?[key] as? [String:Any]
+                for cur in (val?["currency"])! as! [Any] {
+                    print(cur)
+                }
+            //    print(val?["currency"])
+//                val?["currency"]?.forEach{print($0)}
+//                for cur in val?["currency"] {
+//                    print(cur)
+//                }
+            }
+            
+        }
+        task.resume()
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
@@ -26,7 +52,7 @@ class ManageExchangesTableViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }c
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         
