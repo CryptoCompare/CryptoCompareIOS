@@ -76,7 +76,6 @@ class AppSettingsViewController: UITableViewController {
     func buttonAction(sender: UIButton!) {
         var btnsendtag: UIButton = sender
         if btnsendtag.tag == 1 {
-            print("nigga")
             self.performSegue(withIdentifier: "BitcoinExchanges", sender: self)
         }
     }

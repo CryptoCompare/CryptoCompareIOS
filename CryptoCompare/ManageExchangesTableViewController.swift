@@ -10,7 +10,9 @@ import UIKit
 
 class ManageExchangesTableViewController: UITableViewController {
     
+    //MARK: Properties
     
+    var exchangesArray = [ExchangesSettingTab]()
 
 
     override func viewDidLoad() {
@@ -20,31 +22,8 @@ class ManageExchangesTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
         //Set table footer to avoid extra rows
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
-        var request = URLRequest(url: URL(string: "https://raw.githubusercontent.com/CryptoCompare/API/master/included_sites.json")!)
-        request.httpMethod = "GET"
-//        request.httpBody = exchanges
+        self.updateSettings()
         
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data, error == nil else {
-                print(error?.localizedDescription ?? "No data")
-                return
-            }
-            let responseJSON = try? JSONSerialization.jsonObject(with: data, options: []) //as! [String:AnyObject]
-            let exchanges = responseJSON as? [String:Any]
-            for key in (exchanges?.keys)! {
-                let val = exchanges?[key] as? [String:Any]
-                for cur in (val?["currency"])! as! [Any] {
-                    print(cur)
-                }
-            //    print(val?["currency"])
-//                val?["currency"]?.forEach{print($0)}
-//                for cur in val?["currency"] {
-//                    print(cur)
-//                }
-            }
-            
-        }
-        task.resume()
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
@@ -124,5 +103,144 @@ class ManageExchangesTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func updateSettings()  {
+        let userDefaults = UserDefaults.standard
+        userDefaults.removeObject(forKey: "exchanges")
+        
+        let isAtleastOneExchange = userDefaults.object(forKey: "exchanges") as? NSData
+
+
+        
+        if isAtleastOneExchange == nil {
+            var exchangeId = Int()
+            var exchangeName = String()
+
+            var request = URLRequest(url: URL(string: "https://raw.githubusercontent.com/CryptoCompare/API/master/included_sites.json")!)
+            request.httpMethod = "GET"
+            //        request.httpBody = exchanges
+            
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                guard let data = data, error == nil else {
+                    print(error?.localizedDescription ?? "No data")
+                    return
+                }
+                let responseJSON = try? JSONSerialization.jsonObject(with: data, options: []) //as! [String:AnyObject]
+                let exchanges = responseJSON as? [String:Any]
+                for key in (exchanges?.keys)! {
+                    let val = exchanges?[key] as? [String:Any]
+                    exchangeId = val?["id"] as! Int
+                    exchangeName = key as! String
+                    var currencies = [String]()
+                    var allowExchange = [Bool]()
+                    for cur in (val?["currency"])! as! [Any] {
+                        currencies.append(cur as! String)
+                        allowExchange.append(false)
+                    }
+                let exchangeDetail = ExchangesSettingTab(name: exchangeName, id: exchangeId, allowExchange: allowExchange, currency: currencies)
+                self.exchangesArray.append(exchangeDetail)
+                }
+                self.exchangesArray.remove(at: 2)
+                userDefaults.setValue(NSKeyedArchiver.archivedData(withRootObject: self.exchangesArray), forKey: "exchanges")
+                userDefaults.synchronize()
+                let a: [ExchangesSettingTab]
+                a = NSKeyedUnarchiver.unarchiveObject(with: (userDefaults.object(forKey: "exchanges") as! NSData) as Data) as! [ExchangesSettingTab]
+                    for x in a {
+                        print(x.id, x.allowExchange, x.currency)
+                    }
+                print("Yagyank")
+
+            }
+            task.resume()
+        }
+        else {
+            exchangesArray = NSKeyedUnarchiver.unarchiveObject(with: (userDefaults.object(forKey: "exchanges") as! NSData!) as Data!) as! [ExchangesSettingTab]
+            var exchangeId = Int()
+            var exchangeName = String()
+            
+            var request = URLRequest(url: URL(string: "https://raw.githubusercontent.com/CryptoCompare/API/master/included_sites.json")!)
+            request.httpMethod = "GET"
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                guard let data = data, error == nil else {
+                    print(error?.localizedDescription ?? "No data")
+                    return
+                }
+                let responseJSON = try? JSONSerialization.jsonObject(with: data, options: []) //as! [String:AnyObject]
+                let exchanges = responseJSON as? [String:Any]
+                for key in (exchanges?.keys)! {
+                    let val = exchanges?[key] as? [String:Any]
+                    exchangeId = val?["id"] as! Int
+                    exchangeName = key as! String
+                    var isExchangeAvailable = self.findExchange(exchangeId: exchangeId)
+                    if isExchangeAvailable == false {
+                        var currencies = [String]()
+                        var allowExchange = [Bool]()
+                        for cur in (val?["currency"])! as! [Any] {
+                            currencies.append(cur as! String)
+                            allowExchange.append(false)
+                        }
+                        let exchangeDetail = ExchangesSettingTab(name: exchangeName, id: exchangeId, allowExchange: allowExchange, currency: currencies)
+                        self.exchangesArray.append(exchangeDetail)
+                    } else {
+                        var currencies = [String]()
+                        for cur in (val?["currency"])! as! [Any] {
+                            currencies.append(cur as! String)
+                        }
+                        self.findCurrencies(exchangeId: exchangeId, currencies: currencies)
+                    }
+
+                }
+                
+                userDefaults.setValue(NSKeyedArchiver.archivedData(withRootObject: self.exchangesArray), forKey: "exchanges")
+                userDefaults.synchronize()
+                                let a: [ExchangesSettingTab]
+                                a = NSKeyedUnarchiver.unarchiveObject(with: (userDefaults.object(forKey: "exchanges") as! NSData) as Data) as! [ExchangesSettingTab]
+                                    for x in a {
+                                        print(x.id, x.allowExchange, x.currency)
+                                    }
+                
+            }
+            task.resume()
+            for x in exchangesArray {
+                print(x.id, x.allowExchange, x.currency)
+            }
+        }
+    }
+    
+    func findExchange(exchangeId: Int) -> Bool {
+        
+        var found = false
+        for val in exchangesArray {
+            if exchangeId == val.id {
+                found = true
+            }
+        }
+        return found
+    }
+    
+    func findCurrencies(exchangeId: Int, currencies: [String]) {
+        
+        var found = false
+        for (idx,val) in exchangesArray.enumerated() {
+            if exchangeId == val.id {
+                for currency in currencies {
+                    found = false
+                    for storedCurrency in val.currency {
+                        if currency == storedCurrency {
+                            found = true
+                            break
+                        }
+                    }
+                    if found == false {
+                        exchangesArray[idx].currency.append(currency)
+                        exchangesArray[idx].allowExchange.append(false)
+                    }
+                }
+                break
+            }
+        }
+        
+    }
+    
 
 }

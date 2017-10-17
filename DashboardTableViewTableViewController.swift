@@ -103,18 +103,18 @@ class DashboardTableViewTableViewController: UITableViewController {
         exchangeId.append(1)
         exchangeId.append(2)
 //        exchangeId.append(3)
-        if let data = UserDefaults.standard.data(forKey: "allowedExchanges"),
-            let myExchangesList = NSKeyedUnarchiver.unarchiveObject(with: data) as? [ExchangesSettingTab] {
-            
-            myExchangesList.forEach({
-                if $0.allowExchange == true {
-                    exchangeId.append($0.id)
-                }
-            })
-            //myPeopleList.forEach({print( $0.name, $0.id, $0.allowExchange)})
-        } else {
-            //self.tabBarController?.selectedIndex = 2
-        }
+//        if let data = UserDefaults.standard.data(forKey: "allowedExchanges"),
+//            let myExchangesList = NSKeyedUnarchiver.unarchiveObject(with: data) as? [ExchangesSettingTab] {
+//            
+//            myExchangesList.forEach({
+//                if $0.allowExchange == true {
+//                    exchangeId.append($0.id)
+//                }
+//            })
+//            //myPeopleList.forEach({print( $0.name, $0.id, $0.allowExchange)})
+//        } else {
+//            //self.tabBarController?.selectedIndex = 2
+//        }
         
 //        let json: [String: Any] = [
 //            "Bitcoin":[
