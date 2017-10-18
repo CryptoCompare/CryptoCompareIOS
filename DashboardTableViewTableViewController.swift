@@ -58,11 +58,7 @@ class DashboardTableViewTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! DashboardTableViewCell
-        
-
-
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! DashboardTableViewCell        
         cell.shadowLayer.layer.masksToBounds = false
         cell.shadowLayer.layer.shadowOffset = CGSize(width: 0, height: 0)
         cell.shadowLayer.layer.shadowColor = UIColor.black.cgColor

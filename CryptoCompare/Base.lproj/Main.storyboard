@@ -70,12 +70,12 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="70N-Db-z3U">
-                                            <rect key="frame" x="307" y="21" width="46" height="30"/>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="70N-Db-z3U" customClass="ExchangeSettingButton" customModule="CryptoCompare" customModuleProvider="target">
+                                            <rect key="frame" x="304" y="8" width="53" height="45"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Button"/>
                                             <connections>
-                                                <action selector="exchangeAllowed:" destination="DeE-85-NEk" eventType="touchUpInside" id="o5v-xY-y0J"/>
+                                                <action selector="toggleExchange:" destination="vsl-SM-CMI" eventType="touchUpInside" id="dj5-BK-LZN"/>
                                             </connections>
                                         </button>
                                     </subviews>

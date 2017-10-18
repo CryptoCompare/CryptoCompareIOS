@@ -15,6 +15,22 @@ class ManageExchangesTableViewController: UITableViewController {
     var exchangesArray = [ExchangesSettingTab]()
 
 
+
+    @IBAction func toggleExchange(_ sender: ExchangeSettingButton) {
+        
+        let userDefaults = UserDefaults.standard
+        sender.isSelected = !sender.isSelected
+        if sender.isSelected == true {
+       //     sender.setImage(#imageLiteral(resourceName: "Toggle On"), for: .normal)
+        } else {
+         //   sender.setImage(#imageLiteral(resourceName: "Toggle Off"), for: .normal)
+        }
+        exchangesArray[sender.exchange].allowExchange = sender.isSelected
+        userDefaults.setValue(NSKeyedArchiver.archivedData(withRootObject: self.exchangesArray), forKey: "exchanges")
+        userDefaults.synchronize()
+        print(sender.exchange, sender.currency)
+        //self.tableView.reloadData()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,14 +64,28 @@ class ManageExchangesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
 
-        return 5
+        return exchangesArray.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "manageExchangesCell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "manageExchangesCell", for: indexPath) as! ManageExchangesTableViewCell
+
+        if self.exchangesArray.count > 0 {
+            cell.siteName.text = exchangesArray[indexPath.row].name
+            cell.currency.text = exchangesArray[indexPath.row].currency
+            if exchangesArray[indexPath.row].allowExchange == true {
+                cell.exchangeAllowedButton.isSelected = true
+              //  cell.exchangeAllowedButton.setImage(#imageLiteral(resourceName: "Toggle On"), for: .normal)
+            } else {
+                cell.exchangeAllowedButton.isSelected = false
+                //cell.exchangeAllowedButton.setImage(#imageLiteral(resourceName: "Toggle Off"), for: .normal)
+            }
+            cell.exchangeAllowedButton.exchange = indexPath.row
+           // print(indexPath.row)
+        }
         
-        return cell!
+        return cell
     }
     
 
@@ -105,8 +135,10 @@ class ManageExchangesTableViewController: UITableViewController {
     */
     
     func updateSettings()  {
+        
         let userDefaults = UserDefaults.standard
-        userDefaults.removeObject(forKey: "exchanges")
+       //userDefaults.removeObject(forKey: "exchanges")
+        
         
         let isAtleastOneExchange = userDefaults.object(forKey: "exchanges") as? NSData
 
@@ -131,25 +163,27 @@ class ManageExchangesTableViewController: UITableViewController {
                     let val = exchanges?[key] as? [String:Any]
                     exchangeId = val?["id"] as! Int
                     exchangeName = key as! String
-                    var currencies = [String]()
-                    var allowExchange = [Bool]()
+                    var currencies: String
+                    var allowExchange: Bool
                     for cur in (val?["currency"])! as! [Any] {
-                        currencies.append(cur as! String)
-                        allowExchange.append(false)
+                        currencies = cur as! String
+                        allowExchange = false
+                        let exchangeDetail = ExchangesSettingTab(name: exchangeName, id: exchangeId, allowExchange: allowExchange, currency: currencies)
+                        self.exchangesArray.append(exchangeDetail)
                     }
-                let exchangeDetail = ExchangesSettingTab(name: exchangeName, id: exchangeId, allowExchange: allowExchange, currency: currencies)
-                self.exchangesArray.append(exchangeDetail)
+
                 }
-                self.exchangesArray.remove(at: 2)
+//                self.exchangesArray[0].currency.remove(at: 1)
                 userDefaults.setValue(NSKeyedArchiver.archivedData(withRootObject: self.exchangesArray), forKey: "exchanges")
                 userDefaults.synchronize()
-                let a: [ExchangesSettingTab]
-                a = NSKeyedUnarchiver.unarchiveObject(with: (userDefaults.object(forKey: "exchanges") as! NSData) as Data) as! [ExchangesSettingTab]
-                    for x in a {
-                        print(x.id, x.allowExchange, x.currency)
-                    }
-                print("Yagyank")
+//                let a: [ExchangesSettingTab]
+//                a = NSKeyedUnarchiver.unarchiveObject(with: (userDefaults.object(forKey: "exchanges") as! NSData) as Data) as! [ExchangesSettingTab]
+//                    for x in a {
+//                        print(x.id, x.allowExchange, x.currency )
+//                    }
+//                print("Yagyank")
 
+            self.tableView.reloadData()
             }
             task.resume()
         }
@@ -173,14 +207,15 @@ class ManageExchangesTableViewController: UITableViewController {
                     exchangeName = key as! String
                     var isExchangeAvailable = self.findExchange(exchangeId: exchangeId)
                     if isExchangeAvailable == false {
-                        var currencies = [String]()
-                        var allowExchange = [Bool]()
+                        var currencies: String
+                        var allowExchange: Bool
                         for cur in (val?["currency"])! as! [Any] {
-                            currencies.append(cur as! String)
-                            allowExchange.append(false)
+                            currencies = cur as! String
+                            allowExchange = false
+                            let exchangeDetail = ExchangesSettingTab(name: exchangeName, id: exchangeId, allowExchange: allowExchange, currency: currencies)
+                            self.exchangesArray.append(exchangeDetail)
                         }
-                        let exchangeDetail = ExchangesSettingTab(name: exchangeName, id: exchangeId, allowExchange: allowExchange, currency: currencies)
-                        self.exchangesArray.append(exchangeDetail)
+
                     } else {
                         var currencies = [String]()
                         for cur in (val?["currency"])! as! [Any] {
@@ -193,18 +228,21 @@ class ManageExchangesTableViewController: UITableViewController {
                 
                 userDefaults.setValue(NSKeyedArchiver.archivedData(withRootObject: self.exchangesArray), forKey: "exchanges")
                 userDefaults.synchronize()
-                                let a: [ExchangesSettingTab]
-                                a = NSKeyedUnarchiver.unarchiveObject(with: (userDefaults.object(forKey: "exchanges") as! NSData) as Data) as! [ExchangesSettingTab]
-                                    for x in a {
-                                        print(x.id, x.allowExchange, x.currency)
-                                    }
+//                let a: [ExchangesSettingTab]
+//                a = NSKeyedUnarchiver.unarchiveObject(with: (userDefaults.object(forKey: "exchanges") as! NSData) as Data) as! [ExchangesSettingTab]
+//                    for x in a {
+//                        print(x.id, x.allowExchange, x.currency)
+//                    }
+//                userDefaults.removeObject(forKey: "exchanges")
                 
+            self.tableView.reloadData()
             }
             task.resume()
-            for x in exchangesArray {
-                print(x.id, x.allowExchange, x.currency)
-            }
+//            for x in exchangesArray {
+//                print(x.id, x.allowExchange, x.currency)
+//            }
         }
+        
     }
     
     func findExchange(exchangeId: Int) -> Bool {
@@ -220,23 +258,16 @@ class ManageExchangesTableViewController: UITableViewController {
     
     func findCurrencies(exchangeId: Int, currencies: [String]) {
         
-        var found = false
-        for (idx,val) in exchangesArray.enumerated() {
+        var exchangeDetail: ExchangesSettingTab
+        for val in exchangesArray {
             if exchangeId == val.id {
                 for currency in currencies {
-                    found = false
-                    for storedCurrency in val.currency {
-                        if currency == storedCurrency {
-                            found = true
-                            break
-                        }
-                    }
-                    if found == false {
-                        exchangesArray[idx].currency.append(currency)
-                        exchangesArray[idx].allowExchange.append(false)
+                    if !exchangesArray.contains(where: {$0.currency == currency}) {
+                        exchangeDetail = ExchangesSettingTab(name: val.name, id: val.id, allowExchange: false, currency: currency)
+                        exchangesArray.append(exchangeDetail)
                     }
                 }
-                break
+                
             }
         }
         

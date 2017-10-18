@@ -18,12 +18,9 @@ class ManageExchangesTableViewCell: UITableViewCell {
     @IBOutlet weak var currency: UILabel!
     
     
-    @IBOutlet weak var exchangeAllowedButton: UIButton!
+    @IBOutlet weak var exchangeAllowedButton: ExchangeSettingButton!
     
-    @IBAction func exchangeAllowed(_ sender: Any) {
-        
-        self.exchangeAllowedButton.isSelected = !self.exchangeAllowedButton.isSelected
-    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

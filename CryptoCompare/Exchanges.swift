@@ -11,11 +11,11 @@ import Foundation
 class ExchangesSettingTab: NSObject, NSCoding {
     let name: String
     let id: Int
-    var allowExchange: [Bool]
-    var currency = [String]()
+    var allowExchange: Bool
+    var currency: String
     
     
-    init(name: String, id: Int, allowExchange: [Bool], currency: [String]) {
+    init(name: String, id: Int, allowExchange: Bool, currency: String) {
         self.name = name
         self.id = id
         self.allowExchange = allowExchange
@@ -24,8 +24,8 @@ class ExchangesSettingTab: NSObject, NSCoding {
     required init(coder decoder: NSCoder) {
         self.name = decoder.decodeObject(forKey: "name") as? String ?? ""
         self.id = decoder.decodeInteger(forKey: "id")
-        self.allowExchange = decoder.decodeObject(forKey: "allowExchange") as! [Bool]
-        self.currency = decoder.decodeObject(forKey: "currency") as! [String]
+        self.allowExchange = decoder.decodeBool(forKey: "allowExchange")
+        self.currency = decoder.decodeObject(forKey: "currency") as! String
     }
     
     func encode(with coder: NSCoder) {
