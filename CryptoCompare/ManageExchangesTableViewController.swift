@@ -25,7 +25,7 @@ class ManageExchangesTableViewController: UITableViewController {
         } else {
          //   sender.setImage(#imageLiteral(resourceName: "Toggle Off"), for: .normal)
         }
-        exchangesArray[sender.exchange].allowExchange = sender.isSelected
+        self.exchangesArray[sender.exchange].allowExchange = sender.isSelected
         userDefaults.setValue(NSKeyedArchiver.archivedData(withRootObject: self.exchangesArray), forKey: "exchanges")
         userDefaults.synchronize()
         print(sender.exchange, sender.currency)
@@ -64,7 +64,7 @@ class ManageExchangesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
 
-        return exchangesArray.count
+        return self.exchangesArray.count
     }
 
     
@@ -72,9 +72,9 @@ class ManageExchangesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "manageExchangesCell", for: indexPath) as! ManageExchangesTableViewCell
 
         if self.exchangesArray.count > 0 {
-            cell.siteName.text = exchangesArray[indexPath.row].name
-            cell.currency.text = exchangesArray[indexPath.row].currency
-            if exchangesArray[indexPath.row].allowExchange == true {
+            cell.siteName.text = self.exchangesArray[indexPath.row].name
+            cell.currency.text = self.exchangesArray[indexPath.row].currency
+            if self.exchangesArray[indexPath.row].allowExchange == true {
                 cell.exchangeAllowedButton.isSelected = true
               //  cell.exchangeAllowedButton.setImage(#imageLiteral(resourceName: "Toggle On"), for: .normal)
             } else {
@@ -137,7 +137,8 @@ class ManageExchangesTableViewController: UITableViewController {
     func updateSettings()  {
         
         let userDefaults = UserDefaults.standard
-       //userDefaults.removeObject(forKey: "exchanges")
+//       userDefaults.removeObject(forKey: "exchanges")
+//        userDefaults.removeObject(forKey: "currencies")
         
         
         let isAtleastOneExchange = userDefaults.object(forKey: "exchanges") as? NSData
@@ -147,6 +148,8 @@ class ManageExchangesTableViewController: UITableViewController {
         if isAtleastOneExchange == nil {
             var exchangeId = Int()
             var exchangeName = String()
+            var seenCurrency = Set<String>()
+            var distinctCurrencies = [String]()
 
             var request = URLRequest(url: URL(string: "https://raw.githubusercontent.com/CryptoCompare/API/master/included_sites.json")!)
             request.httpMethod = "GET"
@@ -167,6 +170,10 @@ class ManageExchangesTableViewController: UITableViewController {
                     var allowExchange: Bool
                     for cur in (val?["currency"])! as! [Any] {
                         currencies = cur as! String
+                        if !seenCurrency.contains(currencies) {
+                            seenCurrency.insert(currencies)
+                            distinctCurrencies.append(currencies)
+                        }
                         allowExchange = false
                         let exchangeDetail = ExchangesSettingTab(name: exchangeName, id: exchangeId, allowExchange: allowExchange, currency: currencies)
                         self.exchangesArray.append(exchangeDetail)
@@ -175,6 +182,8 @@ class ManageExchangesTableViewController: UITableViewController {
                 }
 //                self.exchangesArray[0].currency.remove(at: 1)
                 userDefaults.setValue(NSKeyedArchiver.archivedData(withRootObject: self.exchangesArray), forKey: "exchanges")
+               // userDefaults.setValue(NSKeyedArchiver.archivedData(withRootObject: distinctCurrencies), forKey: "currencies")
+               userDefaults.set(distinctCurrencies, forKey: "currencies")
                 userDefaults.synchronize()
 //                let a: [ExchangesSettingTab]
 //                a = NSKeyedUnarchiver.unarchiveObject(with: (userDefaults.object(forKey: "exchanges") as! NSData) as Data) as! [ExchangesSettingTab]
@@ -188,7 +197,10 @@ class ManageExchangesTableViewController: UITableViewController {
             task.resume()
         }
         else {
-            exchangesArray = NSKeyedUnarchiver.unarchiveObject(with: (userDefaults.object(forKey: "exchanges") as! NSData!) as Data!) as! [ExchangesSettingTab]
+            self.exchangesArray = NSKeyedUnarchiver.unarchiveObject(with: (userDefaults.object(forKey: "exchanges") as! NSData!) as Data!) as! [ExchangesSettingTab]
+            var seenCurrency = Set<String>()
+            seenCurrency = Set(UserDefaults.standard.stringArray(forKey: "currencies") ?? [String]())
+            var distinctCurrencies = Array(seenCurrency)
             var exchangeId = Int()
             var exchangeName = String()
             
@@ -211,6 +223,10 @@ class ManageExchangesTableViewController: UITableViewController {
                         var allowExchange: Bool
                         for cur in (val?["currency"])! as! [Any] {
                             currencies = cur as! String
+                            if !seenCurrency.contains(currencies) {
+                                seenCurrency.insert(currencies)
+                                distinctCurrencies.append(currencies)
+                            }
                             allowExchange = false
                             let exchangeDetail = ExchangesSettingTab(name: exchangeName, id: exchangeId, allowExchange: allowExchange, currency: currencies)
                             self.exchangesArray.append(exchangeDetail)
@@ -219,6 +235,10 @@ class ManageExchangesTableViewController: UITableViewController {
                     } else {
                         var currencies = [String]()
                         for cur in (val?["currency"])! as! [Any] {
+                            if !seenCurrency.contains(cur as! String) {
+                                seenCurrency.insert(cur as! String)
+                                distinctCurrencies.append(cur as! String)
+                            }
                             currencies.append(cur as! String)
                         }
                         self.findCurrencies(exchangeId: exchangeId, currencies: currencies)
@@ -227,6 +247,7 @@ class ManageExchangesTableViewController: UITableViewController {
                 }
                 
                 userDefaults.setValue(NSKeyedArchiver.archivedData(withRootObject: self.exchangesArray), forKey: "exchanges")
+                 userDefaults.set(distinctCurrencies, forKey: "currencies")
                 userDefaults.synchronize()
 //                let a: [ExchangesSettingTab]
 //                a = NSKeyedUnarchiver.unarchiveObject(with: (userDefaults.object(forKey: "exchanges") as! NSData) as Data) as! [ExchangesSettingTab]
@@ -248,7 +269,7 @@ class ManageExchangesTableViewController: UITableViewController {
     func findExchange(exchangeId: Int) -> Bool {
         
         var found = false
-        for val in exchangesArray {
+        for val in self.exchangesArray {
             if exchangeId == val.id {
                 found = true
             }
@@ -259,12 +280,12 @@ class ManageExchangesTableViewController: UITableViewController {
     func findCurrencies(exchangeId: Int, currencies: [String]) {
         
         var exchangeDetail: ExchangesSettingTab
-        for val in exchangesArray {
+        for val in self.exchangesArray {
             if exchangeId == val.id {
                 for currency in currencies {
-                    if !exchangesArray.contains(where: {$0.currency == currency}) {
+                    if !self.exchangesArray.contains(where: {$0.currency == currency}) {
                         exchangeDetail = ExchangesSettingTab(name: val.name, id: val.id, allowExchange: false, currency: currency)
-                        exchangesArray.append(exchangeDetail)
+                        self.exchangesArray.append(exchangeDetail)
                     }
                 }
                 

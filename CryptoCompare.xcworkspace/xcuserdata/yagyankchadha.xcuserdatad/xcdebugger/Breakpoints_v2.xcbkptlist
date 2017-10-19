@@ -84,11 +84,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CryptoCompare/ManageExchangesTableViewController.swift"
-            timestampString = "530047518.706164"
+            timestampString = "530098448.371372"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "208"
-            endingLineNumber = "208"
+            startingLineNumber = "220"
+            endingLineNumber = "220"
             landmarkName = "updateSettings()"
             landmarkType = "7">
          </BreakpointContent>
@@ -106,6 +106,22 @@
             startingLineNumber = "27"
             endingLineNumber = "27"
             landmarkName = "init(coder:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DashboardTableViewTableViewController.swift"
+            timestampString = "530098754.446165"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "getCurrentData()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

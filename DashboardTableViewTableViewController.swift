@@ -13,6 +13,8 @@ class DashboardTableViewTableViewController: UITableViewController {
   
 
     var curData = [DashboardTableCell]();
+    var exchangesArray = [ExchangesSettingTab]()
+    var currencies = [String]()
 
     
     override func viewDidLoad() {
@@ -86,8 +88,13 @@ class DashboardTableViewTableViewController: UITableViewController {
     
     func getCurrentData() {
         
+        if UserDefaults.standard.object(forKey: "exchanges") != nil  {
+            
+            self.exchangesArray = NSKeyedUnarchiver.unarchiveObject(with: (UserDefaults.standard.object(forKey: "exchanges") as! NSData!) as Data!) as! [ExchangesSettingTab]
+            self.currencies = UserDefaults.standard.stringArray(forKey: "currencies") ?? [String]()
+        }
         
-        
+
 //        let newExchanges = ExchangesSettingTab(name: "FYBSG", age: 10)
 //        var people = [Person]()
 //        people.append(newPerson)
