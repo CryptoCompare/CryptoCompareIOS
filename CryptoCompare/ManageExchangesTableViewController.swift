@@ -21,9 +21,9 @@ class ManageExchangesTableViewController: UITableViewController {
         let userDefaults = UserDefaults.standard
         sender.isSelected = !sender.isSelected
         if sender.isSelected == true {
-       //     sender.setImage(#imageLiteral(resourceName: "Toggle On"), for: .normal)
+            sender.setImage(#imageLiteral(resourceName: "Toggle On"), for: .normal)
         } else {
-         //   sender.setImage(#imageLiteral(resourceName: "Toggle Off"), for: .normal)
+            sender.setImage(#imageLiteral(resourceName: "Toggle Off"), for: .normal)
         }
         exchangesArray[sender.exchange].allowExchange = sender.isSelected
         userDefaults.setValue(NSKeyedArchiver.archivedData(withRootObject: self.exchangesArray), forKey: "exchanges")
@@ -76,10 +76,10 @@ class ManageExchangesTableViewController: UITableViewController {
             cell.currency.text = exchangesArray[indexPath.row].currency
             if exchangesArray[indexPath.row].allowExchange == true {
                 cell.exchangeAllowedButton.isSelected = true
-              //  cell.exchangeAllowedButton.setImage(#imageLiteral(resourceName: "Toggle On"), for: .normal)
+                cell.exchangeAllowedButton.setImage(#imageLiteral(resourceName: "Toggle On"), for: .normal)
             } else {
                 cell.exchangeAllowedButton.isSelected = false
-                //cell.exchangeAllowedButton.setImage(#imageLiteral(resourceName: "Toggle Off"), for: .normal)
+                cell.exchangeAllowedButton.setImage(#imageLiteral(resourceName: "Toggle Off"), for: .normal)
             }
             cell.exchangeAllowedButton.exchange = indexPath.row
            // print(indexPath.row)
