@@ -25,7 +25,8 @@
         <scene sceneID="blm-uK-7L1">
             <objects>
                 <tabBarController id="hEV-99-WhN" customClass="TabBarControllerViewController" customModule="CryptoCompare" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="igx-pE-5TU">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="igx-pE-5TU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -137,7 +138,7 @@
                         <viewControllerLayoutGuide type="bottom" id="HPT-df-OR4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1G8-ax-xEE">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="599"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="550"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o2l-T0-PGU" customClass="LineChartView" customModule="Charts">
@@ -167,7 +168,7 @@
             <objects>
                 <tableViewController id="Zrd-Hz-fQ4" customClass="DashboardTableViewTableViewController" customModule="CryptoCompare" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="167" sectionHeaderHeight="28" sectionFooterHeight="28" id="n5Z-tj-tHT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="599"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="550"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>

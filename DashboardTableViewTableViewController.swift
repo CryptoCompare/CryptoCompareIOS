@@ -127,7 +127,7 @@ class DashboardTableViewTableViewController: UITableViewController {
         var currencyExchangeMapping = [String:[Int]]()
         
         for cur in currencies {
-            currencyExchangeMapping[cur] =  self.exchangesArray.filter{ $0.currency == cur}.map{ $0.id}
+            currencyExchangeMapping[cur] =  self.exchangesArray.filter{ $0.currency == cur && $0.allowExchange == true}.map{ $0.id}
         }
         let jsonData: [String: Any] = [
             "Bitcoin" : currencyExchangeMapping]
@@ -150,27 +150,30 @@ class DashboardTableViewTableViewController: UITableViewController {
             let array1 = responseJSON as? [String:Any]
                 for key in (array1?.keys)! {
                     let val = array1?[key] as? [Any]
-                    for value  in (val! as? [AnyObject])! {
-                        //print(value)
-                        let buy = self.reduceDecimal(value : (value["buy"] as? String)!)
-                        let lastDayMaxBuy = self.reduceDecimal(value : (value["lastDayMaxBuy"] as? String)!)
-                        let lastDayMaxSell = self.reduceDecimal(value : (value["lastDayMaxSell"] as? String)!)
-                        let lastDayMinBuy = self.reduceDecimal(value : (value["lastDayMinBuy"] as? String)!)
-                        let lastDayMinSell = self.reduceDecimal(value : (value["lastDayMinSell"] as? String)!)
-                        let lastHourMaxBuy = self.reduceDecimal(value : (value["lastHourMaxBuy"] as? String)!)
-                        let lastHourMaxSell = self.reduceDecimal(value : (value["lastHourMaxSell"] as? String)!)
-                        let lastHourMinBuy = self.reduceDecimal(value : (value["lastHourMinBuy"] as? String)!)
-                        let lastHourMinSell = self.reduceDecimal(value : (value["lastHourMinSell"] as? String)!)
-                        let lastMonthMaxBuy = self.reduceDecimal(value : (value["lastMonthMaxBuy"] as? String)!)
-                        let lastMonthMaxSell = self.reduceDecimal(value : (value["lastMonthMaxSell"] as? String)!)
-                        let lastMonthMinBuy = self.reduceDecimal(value : (value["lastMonthMinBuy"] as? String)!)
-                        let lastMonthMinSell = self.reduceDecimal(value : (value["lastMonthMinSell"] as? String)!)
-                        let lastWeekMaxBuy = self.reduceDecimal(value : (value["lastWeekMaxBuy"] as? String)!)
-                        let lastWeekMaxSell = self.reduceDecimal(value : (value["lastWeekMinBuy"] as? String)!)
-                        let lastWeekMinBuy = self.reduceDecimal(value : (value["lastWeekMinBuy"] as? String)!)
-                        let lastWeekMinSell = self.reduceDecimal(value : (value["lastWeekMinSell"] as? String)!)
-                        let sell = self.reduceDecimal(value : (value["sell"] as? String)!)
-                        self.curData.append(DashboardTableCell(currency: "SGD", twentyFourHourHVolume: "0",siteName: key, currentBuy: buy,currentSell: sell, buyLow: lastHourMinBuy, buyHigh: lastHourMaxBuy, sellLow : lastHourMinSell, sellHigh: lastHourMaxSell ))
+                    for v  in (val! as? [AnyObject])! {
+                     //   print(v)
+                        var value = v[0] as? [String:String]
+                        let buy = self.reduceDecimal(value : (value!["buy"] as! String))
+                       // print(buy)
+                        let lastDayMaxBuy = self.reduceDecimal(value : (value!["lastDayMaxBuy"] as! String))
+                        let lastDayMaxSell = self.reduceDecimal(value : (value!["lastDayMaxSell"] as! String))
+                        let lastDayMinBuy = self.reduceDecimal(value : (value!["lastDayMinBuy"] as! String))
+                        let lastDayMinSell = self.reduceDecimal(value : (value!["lastDayMinSell"] as! String))
+                        let lastHourMaxBuy = self.reduceDecimal(value : (value!["lastHourMaxBuy"] as! String))
+                        let lastHourMaxSell = self.reduceDecimal(value : (value!["lastHourMaxSell"] as! String))
+                        let lastHourMinBuy = self.reduceDecimal(value : (value!["lastHourMinBuy"] as! String))
+                        let lastHourMinSell = self.reduceDecimal(value : (value!["lastHourMinSell"] as! String))
+                        let lastMonthMaxBuy = self.reduceDecimal(value : (value!["lastMonthMaxBuy"] as! String))
+                        let lastMonthMaxSell = self.reduceDecimal(value : (value!["lastMonthMaxSell"] as! String))
+                        let lastMonthMinBuy = self.reduceDecimal(value : (value!["lastMonthMinBuy"] as! String))
+                        let lastMonthMinSell = self.reduceDecimal(value : (value!["lastMonthMinSell"] as! String))
+                        let lastWeekMaxBuy = self.reduceDecimal(value : (value!["lastWeekMaxBuy"] as! String))
+                        let lastWeekMaxSell = self.reduceDecimal(value : (value!["lastWeekMinBuy"] as! String))
+                        let lastWeekMinBuy = self.reduceDecimal(value : (value!["lastWeekMinBuy"] as! String))
+                        let lastWeekMinSell = self.reduceDecimal(value : (value!["lastWeekMinSell"] as! String))
+                        let cur = value!["currency"] as! String
+                        let sell = self.reduceDecimal(value : (value!["sell"] as! String))
+                        self.curData.append(DashboardTableCell(currency: cur, twentyFourHourHVolume: "0",siteName: key, currentBuy: buy,currentSell: sell, buyLow: lastHourMinBuy, buyHigh: lastHourMaxBuy, sellLow : lastHourMinSell, sellHigh: lastHourMaxSell ))
                         
                     }
                 }
