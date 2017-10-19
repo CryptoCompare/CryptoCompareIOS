@@ -124,11 +124,18 @@ class DashboardTableViewTableViewController: UITableViewController {
 //                "SGD":[ 1 ,2 ,3 ,4]
 //            ]
 //        ]
-        let jsonData = [
-            "Bitcoin":[
-                "SGD":exchangeId
-            ]
-        ]
+        var currencyExchangeMapping = [String:[Int]]()
+        
+        for cur in currencies {
+            currencyExchangeMapping[cur] =  self.exchangesArray.filter{ $0.currency == cur}.map{ $0.id}
+        }
+        let jsonData: [String: Any] = [
+            "Bitcoin" : currencyExchangeMapping]
+//        let jsonData = [
+//            "Bitcoin":[
+//                "SGD":exchangeId
+//            ]
+//        ]
         let exchanges = try? JSONSerialization.data(withJSONObject: jsonData)
         var request = URLRequest(url: URL(string: "http://13.59.41.217:8000/api/v1/liveData/")!)
         request.httpMethod = "POST"
