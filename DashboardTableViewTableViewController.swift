@@ -16,6 +16,7 @@ class DashboardTableViewTableViewController: UITableViewController {
     var exchangesArray = [ExchangesSettingTab]()
     var currencies = [String]()
 
+    @IBOutlet weak var settingsButton: UIButton!
     
     override func viewDidLoad() {
         
@@ -92,94 +93,81 @@ class DashboardTableViewTableViewController: UITableViewController {
             
             self.exchangesArray = NSKeyedUnarchiver.unarchiveObject(with: (UserDefaults.standard.object(forKey: "exchanges") as! NSData!) as Data!) as! [ExchangesSettingTab]
             self.currencies = UserDefaults.standard.stringArray(forKey: "currencies") ?? [String]()
-        }
-        
+            var currencyExchangeMapping = [String:[Int]]()
+            
+            for cur in currencies {
+                if (self.exchangesArray.filter{ $0.currency == cur && $0.allowExchange == true}.map{ $0.id}).count > 0 {
+                    currencyExchangeMapping[cur] =  self.exchangesArray.filter{ $0.currency == cur && $0.allowExchange == true}.map{ $0.id}
+                }
+                
+            }
+            
+            if currencyExchangeMapping.count > 0 {
 
-//        let newExchanges = ExchangesSettingTab(name: "FYBSG", age: 10)
-//        var people = [Person]()
-//        people.append(newPerson)
-//        let encodedData = NSKeyedArchiver.archivedData(withRootObject: people)
-//        UserDefaults.standard.set(encodedData, forKey: "people")
-        
-        // retrieving a value for a key
-        var exchangeId = [Int]()
-        exchangeId.append(1)
-        exchangeId.append(2)
-//        exchangeId.append(3)
-//        if let data = UserDefaults.standard.data(forKey: "allowedExchanges"),
-//            let myExchangesList = NSKeyedUnarchiver.unarchiveObject(with: data) as? [ExchangesSettingTab] {
-//            
-//            myExchangesList.forEach({
-//                if $0.allowExchange == true {
-//                    exchangeId.append($0.id)
-//                }
-//            })
-//            //myPeopleList.forEach({print( $0.name, $0.id, $0.allowExchange)})
-//        } else {
-//            //self.tabBarController?.selectedIndex = 2
-//        }
-        
-//        let json: [String: Any] = [
-//            "Bitcoin":[
-//                "SGD":[ 1 ,2 ,3 ,4]
-//            ]
-//        ]
-        var currencyExchangeMapping = [String:[Int]]()
-        
-        for cur in currencies {
-            currencyExchangeMapping[cur] =  self.exchangesArray.filter{ $0.currency == cur && $0.allowExchange == true}.map{ $0.id}
-        }
-        let jsonData: [String: Any] = [
-            "Bitcoin" : currencyExchangeMapping]
-//        let jsonData = [
-//            "Bitcoin":[
-//                "SGD":exchangeId
-//            ]
-//        ]
-        let exchanges = try? JSONSerialization.data(withJSONObject: jsonData)
-        var request = URLRequest(url: URL(string: "http://13.59.41.217:8000/api/v1/liveData/")!)
-        request.httpMethod = "POST"
-        request.httpBody = exchanges
-        
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data, error == nil else {
-                print(error?.localizedDescription ?? "No data")
+                let jsonData: [String: Any] = [
+                    "Bitcoin" : currencyExchangeMapping]
+                let exchanges = try? JSONSerialization.data(withJSONObject: jsonData)
+                var request = URLRequest(url: URL(string: "http://13.59.41.217:8000/api/v1/liveData/")!)
+                request.httpMethod = "POST"
+                request.httpBody = exchanges
+                
+                let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                    guard let data = data, error == nil else {
+                        print(error?.localizedDescription ?? "No data")
+                        return
+                    }
+                    let responseJSON = try? JSONSerialization.jsonObject(with: data, options: []) //as! [String:AnyObject]
+                    let array1 = responseJSON as? [String:Any]
+                    for key in (array1?.keys)! {
+                        let val = array1?[key] as? [Any]
+                        for v  in (val! as? [AnyObject])! {
+                            //   print(v)
+                            var value = v[0] as? [String:String]
+                            let buy = self.reduceDecimal(value : (value!["buy"] as! String))
+                            // print(buy)
+                            let lastDayMaxBuy = self.reduceDecimal(value : (value!["lastDayMaxBuy"] as! String))
+                            let lastDayMaxSell = self.reduceDecimal(value : (value!["lastDayMaxSell"] as! String))
+                            let lastDayMinBuy = self.reduceDecimal(value : (value!["lastDayMinBuy"] as! String))
+                            let lastDayMinSell = self.reduceDecimal(value : (value!["lastDayMinSell"] as! String))
+                            let lastHourMaxBuy = self.reduceDecimal(value : (value!["lastHourMaxBuy"] as! String))
+                            let lastHourMaxSell = self.reduceDecimal(value : (value!["lastHourMaxSell"] as! String))
+                            let lastHourMinBuy = self.reduceDecimal(value : (value!["lastHourMinBuy"] as! String))
+                            let lastHourMinSell = self.reduceDecimal(value : (value!["lastHourMinSell"] as! String))
+                            let lastMonthMaxBuy = self.reduceDecimal(value : (value!["lastMonthMaxBuy"] as! String))
+                            let lastMonthMaxSell = self.reduceDecimal(value : (value!["lastMonthMaxSell"] as! String))
+                            let lastMonthMinBuy = self.reduceDecimal(value : (value!["lastMonthMinBuy"] as! String))
+                            let lastMonthMinSell = self.reduceDecimal(value : (value!["lastMonthMinSell"] as! String))
+                            let lastWeekMaxBuy = self.reduceDecimal(value : (value!["lastWeekMaxBuy"] as! String))
+                            let lastWeekMaxSell = self.reduceDecimal(value : (value!["lastWeekMinBuy"] as! String))
+                            let lastWeekMinBuy = self.reduceDecimal(value : (value!["lastWeekMinBuy"] as! String))
+                            let lastWeekMinSell = self.reduceDecimal(value : (value!["lastWeekMinSell"] as! String))
+                            let cur = value!["currency"] as! String
+                            let sell = self.reduceDecimal(value : (value!["sell"] as! String))
+                            self.curData.append(DashboardTableCell(currency: cur, twentyFourHourHVolume: "0",siteName: key, currentBuy: buy,currentSell: sell, buyLow: lastHourMinBuy, buyHigh: lastHourMaxBuy, sellLow : lastHourMinSell, sellHigh: lastHourMaxSell ))
+                            
+                        }
+                    }
+                    self.tableView.reloadData()
+                }
+                task.resume()
+            } else {
+                guard let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "NavigationBarViewController") as? UIViewController else {
+                    print("Could not instantiate view controller with identifier of type SecondViewController")
+                    return
+                }
+                self.navigationController?.pushViewController(vc, animated:true)
+            }
+            
+           
+        } else {
+            
+            guard let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "NavigationBarViewController") as? UIViewController else {
+                print("Could not instantiate view controller with identifier of type SecondViewController")
                 return
             }
-            let responseJSON = try? JSONSerialization.jsonObject(with: data, options: []) //as! [String:AnyObject]
-            let array1 = responseJSON as? [String:Any]
-                for key in (array1?.keys)! {
-                    let val = array1?[key] as? [Any]
-                    for v  in (val! as? [AnyObject])! {
-                     //   print(v)
-                        var value = v[0] as? [String:String]
-                        let buy = self.reduceDecimal(value : (value!["buy"] as! String))
-                       // print(buy)
-                        let lastDayMaxBuy = self.reduceDecimal(value : (value!["lastDayMaxBuy"] as! String))
-                        let lastDayMaxSell = self.reduceDecimal(value : (value!["lastDayMaxSell"] as! String))
-                        let lastDayMinBuy = self.reduceDecimal(value : (value!["lastDayMinBuy"] as! String))
-                        let lastDayMinSell = self.reduceDecimal(value : (value!["lastDayMinSell"] as! String))
-                        let lastHourMaxBuy = self.reduceDecimal(value : (value!["lastHourMaxBuy"] as! String))
-                        let lastHourMaxSell = self.reduceDecimal(value : (value!["lastHourMaxSell"] as! String))
-                        let lastHourMinBuy = self.reduceDecimal(value : (value!["lastHourMinBuy"] as! String))
-                        let lastHourMinSell = self.reduceDecimal(value : (value!["lastHourMinSell"] as! String))
-                        let lastMonthMaxBuy = self.reduceDecimal(value : (value!["lastMonthMaxBuy"] as! String))
-                        let lastMonthMaxSell = self.reduceDecimal(value : (value!["lastMonthMaxSell"] as! String))
-                        let lastMonthMinBuy = self.reduceDecimal(value : (value!["lastMonthMinBuy"] as! String))
-                        let lastMonthMinSell = self.reduceDecimal(value : (value!["lastMonthMinSell"] as! String))
-                        let lastWeekMaxBuy = self.reduceDecimal(value : (value!["lastWeekMaxBuy"] as! String))
-                        let lastWeekMaxSell = self.reduceDecimal(value : (value!["lastWeekMinBuy"] as! String))
-                        let lastWeekMinBuy = self.reduceDecimal(value : (value!["lastWeekMinBuy"] as! String))
-                        let lastWeekMinSell = self.reduceDecimal(value : (value!["lastWeekMinSell"] as! String))
-                        let cur = value!["currency"] as! String
-                        let sell = self.reduceDecimal(value : (value!["sell"] as! String))
-                        self.curData.append(DashboardTableCell(currency: cur, twentyFourHourHVolume: "0",siteName: key, currentBuy: buy,currentSell: sell, buyLow: lastHourMinBuy, buyHigh: lastHourMaxBuy, sellLow : lastHourMinSell, sellHigh: lastHourMaxSell ))
-                        
-                    }
-                }
-            self.tableView.reloadData()
+            self.navigationController?.pushViewController(vc, animated:true)
         }
-        task.resume()
+
     }
     
     func reduceDecimal(value : String) -> String {

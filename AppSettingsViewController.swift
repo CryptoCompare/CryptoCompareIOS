@@ -52,7 +52,7 @@ class AppSettingsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view:UIView, forSection: Int) {
         if let headerTitle = view as? UITableViewHeaderFooterView {
-            headerTitle.textLabel?.textColor = UIColor(colorLiteralRed: 0, green: 255, blue: 0, alpha: 0.9)
+            headerTitle.textLabel?.textColor = UIColor(colorLiteralRed: 0, green: 255, blue: 0, alpha: 1)
         }
     }
     

@@ -44,7 +44,7 @@
         <!--Manage Exchanges Table View Controller-->
         <scene sceneID="9YG-gW-5BY">
             <objects>
-                <tableViewController id="vsl-SM-CMI" customClass="ManageExchangesTableViewController" customModule="CryptoCompare" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="BitcoinExcahngesSettings" id="vsl-SM-CMI" customClass="ManageExchangesTableViewController" customModule="CryptoCompare" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="73" sectionHeaderHeight="28" sectionFooterHeight="28" id="jIL-uO-zVm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -101,7 +101,7 @@
         <!--App Settings View Controller-->
         <scene sceneID="w8u-lq-3LZ">
             <objects>
-                <tableViewController id="f7y-Bt-Ubm" customClass="AppSettingsViewController" customModule="CryptoCompare" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SettingsPageIdentifier" id="f7y-Bt-Ubm" customClass="AppSettingsViewController" customModule="CryptoCompare" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="gWE-qs-DfV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -464,10 +464,10 @@
             </objects>
             <point key="canvasLocation" x="1892" y="497.90104947526243"/>
         </scene>
-        <!--View Controller-->
+        <!--Navigation Bar View Controller-->
         <scene sceneID="G0g-G7-YXU">
             <objects>
-                <viewController id="HzG-9q-A7E" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NavigationBarViewController" id="HzG-9q-A7E" customClass="NavigationBarViewController" customModule="CryptoCompare" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mCy-BC-L50"/>
                         <viewControllerLayoutGuide type="bottom" id="EdJ-TV-5Zt"/>
@@ -505,7 +505,7 @@
                                                 <state key="normal" image="Settings"/>
                                                 <connections>
                                                     <action selector="Settings:" destination="1lb-pX-rt0" eventType="touchUpInside" id="42J-aF-NWt"/>
-                                                    <segue destination="f7y-Bt-Ubm" kind="show" id="5i1-2n-5gU"/>
+                                                    <segue destination="f7y-Bt-Ubm" kind="show" identifier="settingsSegue" id="5i1-2n-5gU"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VTl-Ec-Yfh">
@@ -551,6 +551,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="l7b-v4-H96"/>
+                    <connections>
+                        <outlet property="settingsButton" destination="b7X-UW-i7r" id="eeV-FK-eIL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qSz-n8-Pcc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
