@@ -151,21 +151,12 @@ class DashboardTableViewTableViewController: UITableViewController {
                 }
                 task.resume()
             } else {
-                guard let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "NavigationBarViewController") as? UIViewController else {
-                    print("Could not instantiate view controller with identifier of type SecondViewController")
-                    return
-                }
-                self.navigationController?.pushViewController(vc, animated:true)
+
             }
             
            
         } else {
-            
-            guard let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "NavigationBarViewController") as? UIViewController else {
-                print("Could not instantiate view controller with identifier of type SecondViewController")
-                return
-            }
-            self.navigationController?.pushViewController(vc, animated:true)
+
         }
 
     }
