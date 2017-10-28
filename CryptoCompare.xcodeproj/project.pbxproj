@@ -28,6 +28,7 @@
 		0CD5F73F1F8F7CF600BF82B5 /* ManageExchangesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD5F73E1F8F7CF600BF82B5 /* ManageExchangesTableViewCell.swift */; };
 		0CD5F7411F974D7900BF82B5 /* ExchangeSettingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD5F7401F974D7900BF82B5 /* ExchangeSettingButton.swift */; };
 		0CD5F7531F9A681B00BF82B5 /* NavigationBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD5F7521F9A681B00BF82B5 /* NavigationBarViewController.swift */; };
+		0CD5F75D1F9B3A1500BF82B5 /* LoadingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD5F75C1F9B3A1500BF82B5 /* LoadingTableView.swift */; };
 		A55A21C0E862C43512BFE2D4 /* Pods_CryptoCompareTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7838D68EBB3B9C0A61C211F1 /* Pods_CryptoCompareTests.framework */; };
 		C672ADA3E099AB69BF20BF91 /* Pods_CryptoCompareUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FDC4F1E262483D830AB5505 /* Pods_CryptoCompareUITests.framework */; };
 		FDC1B7C8E28CD989D7A24C1A /* Pods_CryptoCompare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68E9623AFF270E73458E3A4E /* Pods_CryptoCompare.framework */; };
@@ -127,6 +128,7 @@
 		0CD5F73E1F8F7CF600BF82B5 /* ManageExchangesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageExchangesTableViewCell.swift; sourceTree = "<group>"; };
 		0CD5F7401F974D7900BF82B5 /* ExchangeSettingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeSettingButton.swift; sourceTree = "<group>"; };
 		0CD5F7521F9A681B00BF82B5 /* NavigationBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarViewController.swift; sourceTree = "<group>"; };
+		0CD5F75C1F9B3A1500BF82B5 /* LoadingTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingTableView.swift; sourceTree = "<group>"; };
 		206C3F870F85EA5BAABD0EC4 /* Pods-CryptoCompare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoCompare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CryptoCompare/Pods-CryptoCompare.debug.xcconfig"; sourceTree = "<group>"; };
 		2FAE840CA4509B8628668E1B /* Pods-CryptoCompareUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoCompareUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CryptoCompareUITests/Pods-CryptoCompareUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4E83BBFF12BD1C6C8690103A /* Pods-CryptoCompareTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoCompareTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CryptoCompareTests/Pods-CryptoCompareTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				0C7E090F1F5B226E00A03BF6 /* DashboardTableViewCell.swift */,
 				0C4BA80A1F7AE04E00ABD209 /* SettingTableViewCell.swift */,
 				0CD5F73E1F8F7CF600BF82B5 /* ManageExchangesTableViewCell.swift */,
+				0CD5F75C1F9B3A1500BF82B5 /* LoadingTableView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -648,6 +651,7 @@
 				0C4BA80D1F7B73B600ABD209 /* ManageExchangesTableViewController.swift in Sources */,
 				0C3F1C7D1F64825B00A4FF9F /* LineChartViewController.swift in Sources */,
 				0C274B2E1F6F07FB00451135 /* BitcoinDashboardData.swift in Sources */,
+				0CD5F75D1F9B3A1500BF82B5 /* LoadingTableView.swift in Sources */,
 				0CD5F7531F9A681B00BF82B5 /* NavigationBarViewController.swift in Sources */,
 				0C274B291F6EFE6000451135 /* NotificationsViewController.swift in Sources */,
 			);

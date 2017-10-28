@@ -12,6 +12,7 @@ class DashboardTableViewTableViewController: UITableViewController {
 
   
 
+    var indicator = UIActivityIndicatorView()
     var curData = [DashboardTableCell]();
     var exchangesArray = [ExchangesSettingTab]()
     var currencies = [String]()
@@ -23,6 +24,9 @@ class DashboardTableViewTableViewController: UITableViewController {
        // self.getCurrentData()
         super.viewDidLoad()
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        activityIndicator()
+//        self.indicator.startAnimating()
+//        self.indicator.backgroundColor = UIColor.white
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -88,6 +92,8 @@ class DashboardTableViewTableViewController: UITableViewController {
     
     
     func getCurrentData() {
+        self.indicator.startAnimating()
+        self.indicator.backgroundColor = UIColor.white
         
         if UserDefaults.standard.object(forKey: "exchanges") != nil  {
             
@@ -148,6 +154,8 @@ class DashboardTableViewTableViewController: UITableViewController {
                         }
                     }
                     self.tableView.reloadData()
+                    self.indicator.stopAnimating()
+                    self.indicator.hidesWhenStopped = true
                 }
                 task.resume()
             } else {
@@ -164,6 +172,13 @@ class DashboardTableViewTableViewController: UITableViewController {
     func reduceDecimal(value : String) -> String {
         
         return String(Float32(value)!);
+    }
+    
+    func activityIndicator() {
+        indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        indicator.center = self.view.center
+        self.view.addSubview(indicator)
     }
     
     
